@@ -26,7 +26,6 @@ var userHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFuncti
     while (true)
       switch ($ctx.state) {
         case 0:
-          console.log('init user handler');
           dbPath = config.dbPath;
           db = createDb(dbPath);
           $ctx.state = 8;

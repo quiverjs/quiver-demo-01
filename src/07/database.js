@@ -7,7 +7,7 @@ import {
 } from 'quiver-promise'
 
 import {
-  simpleHandlerBuilder
+  configMiddleware
 } from 'quiver-component'
 
 var createDb = dbPath => {
@@ -17,19 +17,15 @@ var createDb = dbPath => {
     ['loadDatabase', 'find', 'findOne'])
 }
 
-export var userHandler = simpleHandlerBuilder(
+export var databaseMiddleware = configMiddleware(
   async(function*(config) {
+    if(config.db) return config
+
     var { dbPath } = config
-    
+
     var db = createDb(dbPath)
     yield db.loadDatabase()
 
-    return async(function*(args) {
-      var { username } = args
-
-      var user = yield db.findOne({ username })
-      if(!user) throw error(404, 'user not found')
-
-      return user
-    })
-  }), 'void', 'json')
+    config.db = db
+    return config
+  }))
