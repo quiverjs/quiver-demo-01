@@ -5,4 +5,7 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var config = {dbPath: 'private/user.db'};
+var config = {
+  greet: 'Yo',
+  userDir: 'static/user'
+};

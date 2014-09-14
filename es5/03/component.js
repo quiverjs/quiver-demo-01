@@ -11,16 +11,17 @@ var fileHandler = ($__quiver_45_file_45_component__ = require("quiver-file-compo
 var $__1 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}),
     router = $__1.router,
     simpleHandler = $__1.simpleHandler,
-    argsFilter = $__1.argsFilter,
-    configAliasMiddleware = $__1.configAliasMiddleware;
+    simpleHandlerBuilder = $__1.simpleHandlerBuilder;
 var helloHandler = simpleHandler((function(args) {
   return 'Hello Quiver';
 }), 'void', 'text');
-var greetHandler = simpleHandler((function(args) {
-  return 'Hello, ' + args.name;
+var greetHandler = simpleHandlerBuilder((function(config) {
+  var $__3;
+  var $__2 = config,
+      greet = ($__3 = $__2.greet) === void 0 ? 'Hello' : $__3;
+  return (function(args) {
+    return greet + ', ' + args.name;
+  });
 }), 'void', 'text');
-var userHandler = fileHandler().addMiddleware(argsFilter((function(args) {
-  args.path = '/' + args.username + '.json';
-  return args;
-}))).addMiddleware(configAliasMiddleware({dirPath: 'userDir'}));
-var main = router().addStaticRoute(helloHandler, '/').addParamRoute(greetHandler, '/greet/:name').addParamRoute(userHandler, '/user/:username');
+var userHandler = fileHandler();
+var main = router().addStaticRoute(helloHandler, '/').addParamRoute(greetHandler, '/greet/:name').addParamRoute(userHandler, '/user/:restpath');

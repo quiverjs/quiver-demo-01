@@ -10,7 +10,6 @@ var $__quiver_45_promise__,
     $__user_46_js__;
 var async = ($__quiver_45_promise__ = require("quiver-promise"), $__quiver_45_promise__ && $__quiver_45_promise__.__esModule && $__quiver_45_promise__ || {default: $__quiver_45_promise__}).async;
 var $__1 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}),
-    simpleHandlerLoader = $__1.simpleHandlerLoader,
     simpleHandlerBuilder = $__1.simpleHandlerBuilder,
     inputHandlerMiddleware = $__1.inputHandlerMiddleware;
 var userHandler = ($__user_46_js__ = require("./user.js"), $__user_46_js__ && $__user_46_js__.__esModule && $__user_46_js__ || {default: $__user_46_js__}).userHandler;
@@ -45,4 +44,4 @@ var greetHandler = simpleHandlerBuilder((function(config) {
         }
     }, $__5, this);
   }));
-}), 'void', 'text').addMiddleware(inputHandlerMiddleware(userHandler, 'getUser', {loader: simpleHandlerLoader('void', 'json')}));
+}), 'void', 'text').addMiddleware(inputHandlerMiddleware(userHandler, 'getUser'));

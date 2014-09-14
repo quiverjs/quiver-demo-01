@@ -5,4 +5,7 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var config = {userDir: 'static/user'};
+var config = {
+  greet: 'Yo',
+  userDir: 'static/user'
+};

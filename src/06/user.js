@@ -1,30 +1,15 @@
-import Datastore from 'nedb'
-
-import { error } from 'quiver-error'
-
-import { 
-  async, promisifyMethods 
-} from 'quiver-promise'
-
+import { fileHandler } from 'quiver-file-component'
 import {
-  simpleHandlerBuilder
+  argsFilter, configAliasMiddleware
 } from 'quiver-component'
 
-import {
-  databaseMiddleware
-} from './database.js'
+export var userHandler = fileHandler()
+  .addMiddleware(argsFilter(
+    args => {
+      args.path = '/' + args.username + '.json'
 
-export var userHandler = simpleHandlerBuilder(
-  config => {
-    var { db } = config
-
-    return async(function*(args) {
-      var { username } = args
-
-      var user = yield db.findOne({ username })
-      if(!user) throw error(404, 'user not found')
-
-      return user
-    })
-  }, 'void', 'json')
-  .addMiddleware(databaseMiddleware)
+      return args
+    }))
+  .addMiddleware(configAliasMiddleware({
+    dirPath: 'userDir'
+  }))

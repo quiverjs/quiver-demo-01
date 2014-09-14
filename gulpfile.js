@@ -8,7 +8,7 @@ var traceurOptions = {
 }
 
 gulp.task('src.es5', function () {
-  return gulp.src('src/*/*.js')
+  return gulp.src('src/**/*.js')
     .pipe(traceur(traceurOptions))
     .pipe(gulp.dest('es5'));
 })

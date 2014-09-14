@@ -13,7 +13,7 @@ var componentPath = path.join(subdir, 'component.js');
 var config = require(configPath).config;
 var main = require(componentPath).main;
 startServer(main, config).then((function(server) {
-  console.log('Multipart form server running at port 8080...');
+  console.log('Demo server running at port 8080...');
 })).catch((function(err) {
   console.log('error starting server:', err.stack);
 }));

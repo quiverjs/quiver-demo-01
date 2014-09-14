@@ -1,15 +1,23 @@
 import { async } from 'quiver-promise'
 
 import { 
-  simpleHandler,
+  simpleHandlerLoader,
+  simpleHandlerBuilder,
+  inputHandlerMiddleware, 
 } from 'quiver-component'
 
-import { getUserFilter } from './user.js'
+import { userHandler } from './user.js'
 
-export var greetHandler = simpleHandler(
-  args => {
-    var { user } = args
+export var greetHandler = simpleHandlerBuilder(
+  config => {
+    var { getUser, greet='Hello' } = config
 
-    return 'Hello, ' + user.name
+    return async(function*(args) {
+      var { username } = args
+
+      var user = yield getUser({ username })
+      return greet + ', ' + user.name
+    })
   }, 'void', 'text')
-  .addMiddleware(getUserFilter)
+  .addMiddleware(inputHandlerMiddleware(
+    userHandler, 'getUser'))

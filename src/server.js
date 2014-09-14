@@ -16,7 +16,7 @@ var { main } = require(componentPath)
 
 startServer(main, config)
 .then(server => {
-  console.log('Multipart form server running at port 8080...')
+  console.log('Demo server running at port 8080...')
 })
 .catch(err => {
   console.log('error starting server:', err.stack)

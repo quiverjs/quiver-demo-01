@@ -10,19 +10,13 @@ import {
   simpleHandlerBuilder
 } from 'quiver-component'
 
-var createDb = dbPath => {
-  var db = new Datastore({ filename: dbPath })
-
-  return promisifyMethods(db, 
-    ['loadDatabase', 'find', 'findOne'])
-}
+import {
+  databaseMiddleware
+} from './database.js'
 
 export var userHandler = simpleHandlerBuilder(
-  async(function*(config) {
-    var { dbPath } = config
-    
-    var db = createDb(dbPath)
-    yield db.loadDatabase()
+  config => {
+    var { db } = config
 
     return async(function*(args) {
       var { username } = args
@@ -32,4 +26,5 @@ export var userHandler = simpleHandlerBuilder(
 
       return user
     })
-  }), 'void', 'json')
+  }, 'void', 'json')
+  .addMiddleware(databaseMiddleware)

@@ -1,7 +1,8 @@
-import { fileHandler } from 'quiver-file-component'
-import {
+import { 
   argsFilter, configAliasMiddleware
 } from 'quiver-component'
+
+import { fileHandler } from 'quiver-file-component'
 
 export var userHandler = fileHandler()
   .addMiddleware(argsFilter(
