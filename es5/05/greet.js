@@ -14,7 +14,7 @@ var $__1 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45
     simpleHandlerBuilder = $__1.simpleHandlerBuilder,
     inputHandlerMiddleware = $__1.inputHandlerMiddleware;
 var userHandler = ($__user_46_js__ = require("./user.js"), $__user_46_js__ && $__user_46_js__.__esModule && $__user_46_js__ || {default: $__user_46_js__}).userHandler;
-var greetHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFunction(function $__5(config) {
+var greetHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFunction(function $__6(config) {
   var $__4,
       $__3,
       greet,
@@ -34,7 +34,7 @@ var greetHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFunct
           $ctx.state = 4;
           break;
         case 4:
-          $ctx.returnValue = async($traceurRuntime.initGeneratorFunction(function $__6(args) {
+          $ctx.returnValue = async($traceurRuntime.initGeneratorFunction(function $__7(args) {
             var username,
                 user;
             return $traceurRuntime.createGeneratorInstance(function($ctx) {
@@ -58,12 +58,12 @@ var greetHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFunct
                   default:
                     return $ctx.end();
                 }
-            }, $__6, this);
+            }, $__7, this);
           }));
           $ctx.state = -2;
           break;
         default:
           return $ctx.end();
       }
-  }, $__5, this);
+  }, $__6, this);
 })), 'void', 'text');

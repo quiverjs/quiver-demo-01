@@ -19,7 +19,7 @@ var simpleHandlerBuilder = ($__quiver_45_component__ = require("quiver-component
 var databaseMiddleware = ($__database_46_js__ = require("./database.js"), $__database_46_js__ && $__database_46_js__.__esModule && $__database_46_js__ || {default: $__database_46_js__}).databaseMiddleware;
 var userHandler = simpleHandlerBuilder((function(config) {
   var db = config.db;
-  return async($traceurRuntime.initGeneratorFunction(function $__6(args) {
+  return async($traceurRuntime.initGeneratorFunction(function $__7(args) {
     var username,
         user;
     return $traceurRuntime.createGeneratorInstance(function($ctx) {
@@ -48,6 +48,6 @@ var userHandler = simpleHandlerBuilder((function(config) {
           default:
             return $ctx.end();
         }
-    }, $__6, this);
+    }, $__7, this);
   }));
 }), 'void', 'json').addMiddleware(databaseMiddleware);

@@ -19,7 +19,7 @@ var greetHandler = simpleHandlerBuilder((function(config) {
   var $__3 = config,
       getUser = $__3.getUser,
       greet = ($__4 = $__3.greet) === void 0 ? 'Hello' : $__4;
-  return async($traceurRuntime.initGeneratorFunction(function $__5(args) {
+  return async($traceurRuntime.initGeneratorFunction(function $__6(args) {
     var username,
         user;
     return $traceurRuntime.createGeneratorInstance(function($ctx) {
@@ -43,6 +43,6 @@ var greetHandler = simpleHandlerBuilder((function(config) {
           default:
             return $ctx.end();
         }
-    }, $__5, this);
+    }, $__6, this);
   }));
 }), 'void', 'text').addMiddleware(inputHandlerMiddleware(userHandler, 'getUser'));

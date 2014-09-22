@@ -19,7 +19,7 @@ var createDb = (function(dbPath) {
   var db = new Datastore({filename: dbPath});
   return promisifyMethods(db, ['loadDatabase', 'find', 'findOne']);
 });
-var userHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFunction(function $__5(config) {
+var userHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFunction(function $__6(config) {
   var dbPath,
       db;
   return $traceurRuntime.createGeneratorInstance(function($ctx) {
@@ -38,7 +38,7 @@ var userHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFuncti
           $ctx.state = 4;
           break;
         case 4:
-          $ctx.returnValue = async($traceurRuntime.initGeneratorFunction(function $__6(args) {
+          $ctx.returnValue = async($traceurRuntime.initGeneratorFunction(function $__7(args) {
             var username,
                 user;
             return $traceurRuntime.createGeneratorInstance(function($ctx) {
@@ -67,12 +67,12 @@ var userHandler = simpleHandlerBuilder(async($traceurRuntime.initGeneratorFuncti
                   default:
                     return $ctx.end();
                 }
-            }, $__6, this);
+            }, $__7, this);
           }));
           $ctx.state = -2;
           break;
         default:
           return $ctx.end();
       }
-  }, $__5, this);
+  }, $__6, this);
 })), 'void', 'json');

@@ -13,20 +13,18 @@
   },
   "dependencies": {
     "nedb": "~0.11.1",
-    "traceur": "~0.0.60",
-    "quiver-http": "1.1.0",
+    "traceur": "~0.0.65",
+    "quiver-http": "1.1.1",
     "quiver-error": "~0.1.1",
-    "quiver-promise": "~0.1.1",
-    "quiver-component": "~1.1.2",
-    "quiver-file-stream": "~1.1.0",
-    "quiver-stream-util": "~1.1.2",
+    "quiver-promise": "~0.1.2",
+    "quiver-component": "~1.1.4",
+    "quiver-file-stream": "~1.1.2",
+    "quiver-stream-util": "~1.1.4",
     "quiver-stream-component": "~1.0.3"
   },
   "devDependencies": {
     "chai": "^1.9.1",
-    "gulp": "^3.8.7",
     "mocha": "^1.21.4",
-    "gulp-traceur": "^0.13.0",
     "chai-as-promised": "^4.1.1",
     "quiver-file-component": "~1.1.1"
   },
@@ -41,5 +39,6 @@
   "main": "./index.js",
   "scripts": {
     "test": "make test"
-  }
+  },
+  "private": true
 }
