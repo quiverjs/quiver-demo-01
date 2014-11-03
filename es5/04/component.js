@@ -7,16 +7,16 @@ Object.defineProperties(exports, {
 });
 var $__quiver_45_file_45_component__,
     $__quiver_45_component__,
-    $__user_46_js__,
-    $__greet_46_js__;
+    $__user__,
+    $__greet__;
 var fileHandler = ($__quiver_45_file_45_component__ = require("quiver-file-component"), $__quiver_45_file_45_component__ && $__quiver_45_file_45_component__.__esModule && $__quiver_45_file_45_component__ || {default: $__quiver_45_file_45_component__}).fileHandler;
 var $__1 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}),
     router = $__1.router,
     simpleHandler = $__1.simpleHandler,
     argsFilter = $__1.argsFilter,
     configAliasMiddleware = $__1.configAliasMiddleware;
-var userHandler = ($__user_46_js__ = require("./user.js"), $__user_46_js__ && $__user_46_js__.__esModule && $__user_46_js__ || {default: $__user_46_js__}).userHandler;
-var greetHandler = ($__greet_46_js__ = require("./greet.js"), $__greet_46_js__ && $__greet_46_js__.__esModule && $__greet_46_js__ || {default: $__greet_46_js__}).greetHandler;
+var userHandler = ($__user__ = require("./user"), $__user__ && $__user__.__esModule && $__user__ || {default: $__user__}).userHandler;
+var greetHandler = ($__greet__ = require("./greet"), $__greet__ && $__greet__.__esModule && $__greet__ || {default: $__greet__}).greetHandler;
 var helloHandler = simpleHandler((function(args) {
   return 'Hello Quiver';
 }), 'void', 'text');

@@ -12,7 +12,7 @@ import {
 
 import {
   databaseMiddleware
-} from './database.js'
+} from './database'
 
 export var userHandler = simpleHandlerBuilder(
   config => {

@@ -4,7 +4,7 @@ import {
   simpleHandlerBuilder
 } from 'quiver-component'
 
-import { getUserFilter } from './user.js'
+import { getUserFilter } from './user'
 
 export var greetHandler = simpleHandlerBuilder(
   config => {

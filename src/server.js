@@ -8,8 +8,8 @@ var step = process.argv[2] || '01'
 console.log('Running demo', step)
 
 var subdir = path.join(__dirname, step)
-var configPath = path.join(subdir, 'config.js')
-var componentPath = path.join(subdir, 'component.js')
+var configPath = path.join(subdir, 'config')
+var componentPath = path.join(subdir, 'component')
 
 var { config } = require(configPath)
 var { main } = require(componentPath)

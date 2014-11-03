@@ -6,27 +6,22 @@
   },
   "name": "quiver-demo-01",
   "desription": "Components for processing HTTP requests",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/quiverjs/demo-01",
   "repository": {
     "url": "git@github.com:quiverjs/file-component.git"
   },
   "dependencies": {
     "nedb": "~0.11.1",
-    "traceur": "~0.0.65",
-    "quiver-http": "1.1.1",
+    "traceur": "0.0.72",
+    "quiver-http": "1.2.0",
     "quiver-error": "~0.1.1",
-    "quiver-promise": "~0.1.2",
-    "quiver-component": "~1.1.4",
-    "quiver-file-stream": "~1.1.2",
-    "quiver-stream-util": "~1.1.4",
-    "quiver-stream-component": "~1.0.3"
-  },
-  "devDependencies": {
-    "chai": "^1.9.1",
-    "mocha": "^1.21.4",
-    "chai-as-promised": "^4.1.1",
-    "quiver-file-component": "~1.1.1"
+    "quiver-promise": "~0.2.0",
+    "quiver-component": "~1.2.0",
+    "quiver-file-stream": "~1.2.0",
+    "quiver-stream-util": "~1.2.0",
+    "quiver-file-component": "~1.2.0",
+    "quiver-stream-component": "~1.2.0"
   },
   "bugs": {
     "url": "https://github.com/quiverjs/file-component/issues",
@@ -38,7 +33,9 @@
   },
   "main": "./index.js",
   "scripts": {
-    "test": "make test"
+    "prepublish": "npm run build",
+    "start": "npm run build && node es5/server.js $1",
+    "build": "traceur --dir src es5 --modules commonjs"
   },
   "private": true
 }

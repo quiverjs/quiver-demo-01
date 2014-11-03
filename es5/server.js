@@ -1,15 +1,15 @@
 "use strict";
-var $__traceur_64_0_46_0_46_6__,
+var $__traceur_64_0_46_0_46_7__,
     $__path__,
     $__quiver_45_http__;
-($__traceur_64_0_46_0_46_6__ = require("traceur"), $__traceur_64_0_46_0_46_6__ && $__traceur_64_0_46_0_46_6__.__esModule && $__traceur_64_0_46_0_46_6__ || {default: $__traceur_64_0_46_0_46_6__});
+($__traceur_64_0_46_0_46_7__ = require("traceur"), $__traceur_64_0_46_0_46_7__ && $__traceur_64_0_46_0_46_7__.__esModule && $__traceur_64_0_46_0_46_7__ || {default: $__traceur_64_0_46_0_46_7__});
 var path = ($__path__ = require("path"), $__path__ && $__path__.__esModule && $__path__ || {default: $__path__}).default;
 var startServer = ($__quiver_45_http__ = require("quiver-http"), $__quiver_45_http__ && $__quiver_45_http__.__esModule && $__quiver_45_http__ || {default: $__quiver_45_http__}).startServer;
 var step = process.argv[2] || '01';
 console.log('Running demo', step);
 var subdir = path.join(__dirname, step);
-var configPath = path.join(subdir, 'config.js');
-var componentPath = path.join(subdir, 'component.js');
+var configPath = path.join(subdir, 'config');
+var componentPath = path.join(subdir, 'component');
 var config = require(configPath).config;
 var main = require(componentPath).main;
 startServer(main, config).then((function(server) {

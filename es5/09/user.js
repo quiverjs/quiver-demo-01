@@ -12,7 +12,7 @@ var $__nedb__,
     $__quiver_45_error__,
     $__quiver_45_promise__,
     $__quiver_45_component__,
-    $__database_46_js__;
+    $__database__;
 var Datastore = ($__nedb__ = require("nedb"), $__nedb__ && $__nedb__.__esModule && $__nedb__ || {default: $__nedb__}).default;
 var error = ($__quiver_45_error__ = require("quiver-error"), $__quiver_45_error__ && $__quiver_45_error__.__esModule && $__quiver_45_error__ || {default: $__quiver_45_error__}).error;
 var $__2 = ($__quiver_45_promise__ = require("quiver-promise"), $__quiver_45_promise__ && $__quiver_45_promise__.__esModule && $__quiver_45_promise__ || {default: $__quiver_45_promise__}),
@@ -22,7 +22,7 @@ var $__3 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45
     argsBuilderFilter = $__3.argsBuilderFilter,
     simpleHandlerBuilder = $__3.simpleHandlerBuilder,
     inputHandlerMiddleware = $__3.inputHandlerMiddleware;
-var databaseMiddleware = ($__database_46_js__ = require("./database.js"), $__database_46_js__ && $__database_46_js__.__esModule && $__database_46_js__ || {default: $__database_46_js__}).databaseMiddleware;
+var databaseMiddleware = ($__database__ = require("./database"), $__database__ && $__database__.__esModule && $__database__ || {default: $__database__}).databaseMiddleware;
 var userHandler = simpleHandlerBuilder((function(config) {
   var db = config.db;
   return async($traceurRuntime.initGeneratorFunction(function $__7(args) {

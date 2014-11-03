@@ -4,8 +4,8 @@ import {
   argsFilter, configAliasMiddleware
 } from 'quiver-component'
 
-import { userHandler } from './user.js'
-import { greetHandler } from './greet.js'
+import { userHandler } from './user'
+import { greetHandler } from './greet'
 
 var helloHandler = simpleHandler(
   args => 'Hello Quiver',

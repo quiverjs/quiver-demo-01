@@ -5,7 +5,7 @@ import {
   inputHandlerMiddleware, 
 } from 'quiver-component'
 
-import { userHandler } from './user.js'
+import { userHandler } from './user'
 
 export var greetHandler = simpleHandlerBuilder(
   config => {
