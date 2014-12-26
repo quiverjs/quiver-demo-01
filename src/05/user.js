@@ -1,15 +1,17 @@
+import { 
+  argsFilter, simpleHandlerLoader
+} from 'quiver-core/component'
+
 import { fileHandler } from 'quiver-file-component'
-import {
-  argsFilter, configAliasMiddleware
-} from 'quiver-component'
 
 export var userHandler = fileHandler()
-  .addMiddleware(argsFilter(
+  .middleware(argsFilter(
     args => {
       args.path = '/' + args.username + '.json'
 
       return args
     }))
-  .addMiddleware(configAliasMiddleware({
+  .configAlias({
     dirPath: 'userDir'
-  }))
+  })
+  .setLoader(simpleHandlerLoader('void', 'json'))

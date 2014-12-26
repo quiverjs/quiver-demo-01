@@ -1,6 +1,6 @@
 import { 
   simpleHandlerBuilder
-} from 'quiver-component'
+} from 'quiver-core/component'
 
 export var greetHandler = simpleHandlerBuilder(
   config => {

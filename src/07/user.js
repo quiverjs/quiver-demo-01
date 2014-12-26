@@ -1,28 +1,21 @@
 import Datastore from 'nedb'
-
-import { error } from 'quiver-error'
+import { error } from 'quiver-core/error'
 
 import { 
   async, promisifyMethods 
-} from 'quiver-promise'
+} from 'quiver-core/promise'
 
 import {
   simpleHandlerBuilder
-} from 'quiver-component'
+} from 'quiver-core/component'
 
-var createDb = dbPath => {
-  var db = new Datastore({ filename: dbPath })
-
-  return promisifyMethods(db, 
-    ['loadDatabase', 'find', 'findOne'])
-}
+import {
+  databaseMiddleware
+} from './database'
 
 export var userHandler = simpleHandlerBuilder(
-  async(function*(config) {
-    var { dbPath } = config
-    
-    var db = createDb(dbPath)
-    yield db.loadDatabase()
+  config => {
+    var { db } = config
 
     return async(function*(args) {
       var { username } = args
@@ -32,4 +25,5 @@ export var userHandler = simpleHandlerBuilder(
 
       return user
     })
-  }), 'void', 'json')
+  }, 'void', 'json')
+  .middleware(databaseMiddleware)

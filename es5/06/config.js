@@ -7,5 +7,5 @@ Object.defineProperties(exports, {
 });
 var config = {
   greet: 'Yo',
-  userDir: 'static/user'
+  dbPath: 'private/user.db'
 };

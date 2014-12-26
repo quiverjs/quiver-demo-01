@@ -5,8 +5,8 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__quiver_45_component__;
-var simpleHandler = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}).simpleHandler;
+var $__quiver_45_core_47_component__;
+var simpleHandler = ($__quiver_45_core_47_component__ = require("quiver-core/component"), $__quiver_45_core_47_component__ && $__quiver_45_core_47_component__.__esModule && $__quiver_45_core_47_component__ || {default: $__quiver_45_core_47_component__}).simpleHandler;
 var main = simpleHandler((function(args) {
   return 'Hello Quiver';
 }), 'void', 'text');

@@ -1,14 +1,15 @@
 import Datastore from 'nedb'
 
-import { error } from 'quiver-error'
+import { error } from 'quiver-core/error'
 
 import { 
   async, promisifyMethods 
-} from 'quiver-promise'
+} from 'quiver-core/promise'
 
 import {
+  argsBuilderFilter,
   simpleHandlerBuilder
-} from 'quiver-component'
+} from 'quiver-core/component'
 
 import {
   databaseMiddleware
@@ -27,4 +28,19 @@ export var userHandler = simpleHandlerBuilder(
       return user
     })
   }, 'void', 'json')
-  .addMiddleware(databaseMiddleware)
+  .middleware(databaseMiddleware)
+
+export var getUserFilter = argsBuilderFilter(
+  config => {
+    var { getUser } = config
+
+    return async(function*(args) {
+      if(args.user) return args
+
+      var { username } = args
+      args.user = yield getUser({ username })
+
+      return args
+    })
+  })
+ .inputHandler(userHandler, 'getUser')

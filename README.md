@@ -1,5 +1,4 @@
-
-quiver-file-handler
+Quiver Demo 01
 ===================
 
-Create various filesystem-related stream handlers and filters
+Demo for Quiver.js

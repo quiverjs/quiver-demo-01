@@ -5,14 +5,11 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__quiver_45_promise__,
-    $__quiver_45_component__,
+var $__quiver_45_core_47_promise__,
+    $__quiver_45_core_47_component__,
     $__user__;
-var async = ($__quiver_45_promise__ = require("quiver-promise"), $__quiver_45_promise__ && $__quiver_45_promise__.__esModule && $__quiver_45_promise__ || {default: $__quiver_45_promise__}).async;
-var $__1 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}),
-    simpleHandlerLoader = $__1.simpleHandlerLoader,
-    simpleHandlerBuilder = $__1.simpleHandlerBuilder,
-    inputHandlerMiddleware = $__1.inputHandlerMiddleware;
+var async = ($__quiver_45_core_47_promise__ = require("quiver-core/promise"), $__quiver_45_core_47_promise__ && $__quiver_45_core_47_promise__.__esModule && $__quiver_45_core_47_promise__ || {default: $__quiver_45_core_47_promise__}).async;
+var simpleHandlerBuilder = ($__quiver_45_core_47_component__ = require("quiver-core/component"), $__quiver_45_core_47_component__ && $__quiver_45_core_47_component__.__esModule && $__quiver_45_core_47_component__ || {default: $__quiver_45_core_47_component__}).simpleHandlerBuilder;
 var userHandler = ($__user__ = require("./user"), $__user__ && $__user__.__esModule && $__user__ || {default: $__user__}).userHandler;
 var greetHandler = simpleHandlerBuilder((function(config) {
   var $__4;
@@ -45,4 +42,4 @@ var greetHandler = simpleHandlerBuilder((function(config) {
         }
     }, $__6, this);
   }));
-}), 'void', 'text').addMiddleware(inputHandlerMiddleware(userHandler, 'getUser'));
+}), 'void', 'text').inputHandler(userHandler, 'getUser');

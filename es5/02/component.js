@@ -5,12 +5,12 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__quiver_45_file_45_component__,
-    $__quiver_45_component__;
+var $__quiver_45_core_47_component__,
+    $__quiver_45_file_45_component__;
+var $__0 = ($__quiver_45_core_47_component__ = require("quiver-core/component"), $__quiver_45_core_47_component__ && $__quiver_45_core_47_component__.__esModule && $__quiver_45_core_47_component__ || {default: $__quiver_45_core_47_component__}),
+    router = $__0.router,
+    simpleHandler = $__0.simpleHandler;
 var fileHandler = ($__quiver_45_file_45_component__ = require("quiver-file-component"), $__quiver_45_file_45_component__ && $__quiver_45_file_45_component__.__esModule && $__quiver_45_file_45_component__ || {default: $__quiver_45_file_45_component__}).fileHandler;
-var $__1 = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}),
-    router = $__1.router,
-    simpleHandler = $__1.simpleHandler;
 var helloHandler = simpleHandler((function(args) {
   return 'Hello Quiver';
 }), 'void', 'text');
@@ -18,4 +18,4 @@ var greetHandler = simpleHandler((function(args) {
   return 'Hello, ' + args.name;
 }), 'void', 'text');
 var userHandler = fileHandler();
-var main = router().addStaticRoute(helloHandler, '/').addParamRoute(greetHandler, '/greet/:name').addParamRoute(userHandler, '/user/:restpath');
+var main = router().staticRoute('/', helloHandler).paramRoute('/greet/:name', greetHandler).paramRoute('/user/:restpath', userHandler);

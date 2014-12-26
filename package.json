@@ -6,25 +6,18 @@
   },
   "name": "quiver-demo-01",
   "desription": "Components for processing HTTP requests",
-  "version": "1.1.0",
-  "homepage": "https://github.com/quiverjs/demo-01",
+  "version": "1.2.0",
+  "homepage": "https://github.com/quiverjs/quiver-demo-01",
   "repository": {
-    "url": "git@github.com:quiverjs/file-component.git"
+    "url": "git@github.com:quiverjs/quiver-demo-01.git"
   },
   "dependencies": {
-    "nedb": "~0.11.1",
-    "traceur": "0.0.72",
-    "quiver-http": "1.2.0",
-    "quiver-error": "~0.1.1",
-    "quiver-promise": "~0.2.0",
-    "quiver-component": "~1.2.0",
-    "quiver-file-stream": "~1.2.0",
-    "quiver-stream-util": "~1.2.0",
-    "quiver-file-component": "~1.2.0",
-    "quiver-stream-component": "~1.2.0"
+    "nedb": "~1.0.1",
+    "quiver-core": "~1.0.1",
+    "quiver-file-component": "~1.2.3"
   },
   "bugs": {
-    "url": "https://github.com/quiverjs/file-component/issues",
+    "url": "https://github.com/quiverjs/quiver-demo-01/issues",
     "email": "quiver@quiverjs.org"
   },
   "licenses": {

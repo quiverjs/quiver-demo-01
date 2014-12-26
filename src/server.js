@@ -1,7 +1,7 @@
-import 'traceur'
+import 'quiver-core/traceur'
 
 import path from 'path'
-import { startServer } from 'quiver-http'
+import { startServer } from 'quiver-core/http'
 
 var step = process.argv[2] || '01'
 

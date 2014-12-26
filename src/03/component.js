@@ -1,8 +1,9 @@
-import { fileHandler } from 'quiver-file-component'
 import { 
   router, simpleHandler, 
   simpleHandlerBuilder
-} from 'quiver-component'
+} from 'quiver-core/component'
+
+import { fileHandler } from 'quiver-file-component'
 
 var helloHandler = simpleHandler(
   args => 'Hello Quiver',
@@ -19,6 +20,6 @@ var greetHandler = simpleHandlerBuilder(
 var userHandler = fileHandler()
 
 export var main = router()
-  .addStaticRoute(helloHandler, '/')
-  .addParamRoute(greetHandler, '/greet/:name')
-  .addParamRoute(userHandler, '/user/:restpath')
+  .staticRoute('/', helloHandler)
+  .paramRoute('/greet/:name', greetHandler)
+  .paramRoute('/user/:restpath', userHandler)

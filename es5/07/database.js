@@ -6,15 +6,15 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var $__nedb__,
-    $__quiver_45_error__,
-    $__quiver_45_promise__,
-    $__quiver_45_component__;
+    $__quiver_45_core_47_error__,
+    $__quiver_45_core_47_promise__,
+    $__quiver_45_core_47_component__;
 var Datastore = ($__nedb__ = require("nedb"), $__nedb__ && $__nedb__.__esModule && $__nedb__ || {default: $__nedb__}).default;
-var error = ($__quiver_45_error__ = require("quiver-error"), $__quiver_45_error__ && $__quiver_45_error__.__esModule && $__quiver_45_error__ || {default: $__quiver_45_error__}).error;
-var $__2 = ($__quiver_45_promise__ = require("quiver-promise"), $__quiver_45_promise__ && $__quiver_45_promise__.__esModule && $__quiver_45_promise__ || {default: $__quiver_45_promise__}),
+var error = ($__quiver_45_core_47_error__ = require("quiver-core/error"), $__quiver_45_core_47_error__ && $__quiver_45_core_47_error__.__esModule && $__quiver_45_core_47_error__ || {default: $__quiver_45_core_47_error__}).error;
+var $__2 = ($__quiver_45_core_47_promise__ = require("quiver-core/promise"), $__quiver_45_core_47_promise__ && $__quiver_45_core_47_promise__.__esModule && $__quiver_45_core_47_promise__ || {default: $__quiver_45_core_47_promise__}),
     async = $__2.async,
     promisifyMethods = $__2.promisifyMethods;
-var configMiddleware = ($__quiver_45_component__ = require("quiver-component"), $__quiver_45_component__ && $__quiver_45_component__.__esModule && $__quiver_45_component__ || {default: $__quiver_45_component__}).configMiddleware;
+var configMiddleware = ($__quiver_45_core_47_component__ = require("quiver-core/component"), $__quiver_45_core_47_component__ && $__quiver_45_core_47_component__.__esModule && $__quiver_45_core_47_component__ || {default: $__quiver_45_core_47_component__}).configMiddleware;
 var createDb = (function(dbPath) {
   var db = new Datastore({filename: dbPath});
   return promisifyMethods(db, ['loadDatabase', 'find', 'findOne']);
