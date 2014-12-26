@@ -28,7 +28,9 @@
   "scripts": {
     "prepublish": "npm run build",
     "start": "npm run build && node es5/server.js $1",
-    "build": "traceur --dir src es5 --modules commonjs"
+    "build": "traceur --dir src es5 --modules commonjs",
+    "rebuild-db": "node scripts/create-user-db.js",
+    "show-db": "node scripts/print-users.js"
   },
   "private": true
 }
