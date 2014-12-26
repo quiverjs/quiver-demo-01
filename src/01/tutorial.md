@@ -25,7 +25,7 @@ And that's all it need! The source code above is written in [EcmaScript 6 (ES6)]
 import { simpleHandler } from 'quiver-core/component'
 ```
 
-Now let's try to understand how the code works. In the first line of code, we import the `simpleHandler` function from the `quiver-component` package, which is later used to define a [simple handler component](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler). The same package is aliased to `quiver-core/component` in the `quiver-core` metapackage that include all essential Quiver core libraries. So we will import from there instead.
+Now let's try to understand how the code works. In the first line of code, we import the `simpleHandler` function from the `quiver-component` package, which is later used to define a [simple handler component](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler). The same package is aliased to `quiver-core/component` in the [`quiver-core`](https://github.com/quiverjs/doc/wiki/Core) metapackage that include all essential Quiver core libraries. So we will import from there instead.
 
 ## Simple Handler
 
@@ -37,13 +37,13 @@ simpleHandler(..., 'void', 'text')
 
 The `simpleHandler` function defines a handler component by taking in a function as first argument, and the input and output type in the second and third arguments.In this case, our simple handler ignores its input stream and thus have a `void` input type. And our simple handler returns a string, and so we define the output type as `text`. The reason we call string type `text` in Quiver is to avoid name clash with some built in JavaScript methods like `toString()`.
 
-## Args
+## Handler
 
 ```javascript
 args => 'Hello Quiver'
 ```
 
-For the first argument, our handler function is simply a one-liner ES6 arrow function that returns the `'Hello Quiver'` string. Notice that even though the function ignores its input stream, it also accepts an `args` plain object as first argument. 
+Our handler function is simply a one-liner ES6 arrow function that returns the `'Hello Quiver'` string. Notice that even though the function ignores its input stream, it also accepts an `args` plain object as first argument. 
 
 The `args` object can be used to store intermediary results by middlewares. But for this case we just ignore it and return the same string all the time.
 
