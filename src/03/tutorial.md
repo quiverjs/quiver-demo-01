@@ -11,7 +11,7 @@ var greetHandler = simpleHandler(
 
 The greet handler we have previously greets user with a hard-coded word "Hello". What if we want to allow the greet word to be configurable? Such as greeting the user with "Yo" instead?
 
-From static file directory to database credentials, the problem of configuration management is commonly found in application development. Quiver solves this with the [Builder](https://github.com/quiverjs/doc/wiki/Architecture-Constructs#builder) construct,  which is a function that accepts a `config` plain object and returns a handler object.
+From static file directory to database credentials, the problem of configuration management is commonly found in application development. Quiver solves this with the [Builder](https://github.com/quiverjs/doc/wiki/Architecture-Constructs#builder) construct,  which is a function that accepts a `config` plain object and returns a handler function.
 
 So to make the greet word configurable, we simply define the component using the [`simpleHandlerBuilder()`](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler-builder) function in `quiver-component`:
 
@@ -39,6 +39,8 @@ export var config = {
   dirPath: 'static/user'
 }
 ```
+
+Right now the greet configuration is stored at a global location together with the `dirPath` required by the user file handler. But configuration variables in Quiver are _never_ global and thus is much more flexible. In later tutorials, you will learn that this is not the only way to inject configuration to components.
 
 ## Running Server
 
