@@ -1,6 +1,6 @@
 # 02 - Greet and File Handler
 
-Now that we have learned how to define a simple hello world component, let's define a couple more simple components and group them together. See the full source code [here](component.js)
+Now that we have learned how to define a simple hello world component, let's define a couple more simple components and group them together. See the full source code [here](component.js).
 
 ## Hello Handler
 
@@ -32,10 +32,9 @@ var userHandler = fileHandler()
 
 For the third component, we define a simple file handler using the `fileHandler()` function in [`quiver-file-component`](https://github.com/quiverjs/quiver-file-component) package. This file handler will be used to serve the [static directory](../../static/user) containing json files with user information.
 
-The static file handler is used to simulate user database on the filesystem. For this demo, we have a few mock users in the user directory that looks like the following:
+The static file handler is used to simulate user database on the filesystem. For this demo, we have a few mock users in the [user directory](../../static/user) that looks like the [following](../../static/user/isaacs.json):
 
 ```json
-// static/user/isaacs.json
 {
   "username": "isaacs",
   "name": "Isaac Z. Schlueter",
@@ -120,4 +119,4 @@ $ curl http://localhost:8080/user/isaacs.json
 }
 ```
 
-## Next: [03 - Greet Word Configuration](../src/03/tutorial.md)
+## Next: [03 - Greet Word Configuration](../03/tutorial.md)
