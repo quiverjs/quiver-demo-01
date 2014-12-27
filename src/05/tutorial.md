@@ -1,8 +1,8 @@
 # 05 - Input User Handler
 
-Right now we have made a pretty solid API for getting user profiles using just plain filesystem. On the other hand we also have a greet handler that greets whatever username that is specified in the request URL. Next it is natural to ask how can we get the user profile and greet the user's actual name instead?
+Right now we have made a pretty solid API for getting user profiles using just plain filesystem. On the other hand we also have a greet handler that greets whatever username that is specified in the request URL. Next, it is natural to ask how can we get the user profile and greet the user's actual name instead?
 
-Currently our user profiles are stored as plain files. Our greet handler can read the filesystem directly to get the profiles, but that would introduce quite a bit of extra logic. It will also require a lot of refactoring if we decide to use an actual database to store the profiles later on.
+Currently our user profiles are stored as plain files. Our greet handler can of course read the filesystem directly to get the profiles, but that would introduce quite a bit of extra logic. It will also require a lot of refactoring if we decide to use an actual database to store the profiles later on.
 
 On the other hand, we already have a pretty good HTTP API for getting user profiles. So why not just use that instead? Can't we just call the user handler to get the user profiles?
 
@@ -21,7 +21,7 @@ export var userHandler = fileHandler()
   .setLoader(simpleHandlerLoader('void', 'json'))
 ```
 
-At our user handler component definition, we add one more line to call the `.setLoader()` method. Inside we create and pass in a simple handler loader that will convert the loaded handler into a function that ignores input body (STDIN) and return result as json.
+At our user handler component definition, we add one more line to call the `.setLoader()` method. Inside we create and pass in a simple handler loader that will convert the loaded handler into a function that ignores its input body (STDIN) and return result as json.
 
 ## Input Handler
 
@@ -66,7 +66,7 @@ In our new greet handler implementation, we access `config.getUser` together wit
 var user = yield getUser({ username })
 ```
 
-Inside our handler function, we get `args.username` and forward it to the `getUser()` handler function. Because we loaded user handler with input type `void`, the function only accepts an `args` as first argument and has no second body argument.
+Inside our handler function, we get `args.username` and forward it to the `getUser()` handler function. Because we loaded the user handler with input type `void`, the function only accepts an `args` as first argument and has no second body argument.
 
 Recall that when exposed as HTTP API, the user handler's `args.username` is set by the router based on the URL. But when used internally, we can set `args.username` as anything before calling the user handler function.
 
@@ -96,7 +96,7 @@ Yo, Mikeal Rogers
 
 ## Conclusion
 
-The ability to call Quiver handlers internally as function call has tremendous benefit. It allows us to internally consume the same well-designed HTTP API without the overhead of HTTP requests. In practice, our handler components can add complicated middlewares such as caching, and these features can be enabled without affecting how the handler instance is consumed.
+The ability to call Quiver handlers internally as function call has tremendous benefit. It allows us to internally consume the same well-designed HTTP API without the overhead of HTTP requests. In practice, our handler components can add complicated middlewares such as caching, and these features will automatically be enabled without affecting how the handler function is consumed.
 
 In our next tutorial, we will replace the mock filesystem with a real database. There you will see that despite radical changes, the greet handler can consume the user handler API the same way regardless of how the data is stored.
 
