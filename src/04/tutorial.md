@@ -7,7 +7,7 @@ Now that we have slightly improved our greet handler, let's try and refactor our
 var userHandler = fileHandler()
 ```
 
-The user handler uses the filesystem as a simple mockup of REST API for user profiles. Everything works fine except that our flat-file database is made of files with `.json` extension. What if we want to serve the REST API as `/user/john` instead of `/user/john.json`? Do we have to rename the physical files just for it?
+The user handler uses the filesystem as a simple mockup of HTTP API for user profiles. Everything works fine except that our flat-file database is made of files with `.json` extension. What if we want to serve the HTTP API as `/user/john` instead of `/user/john.json`? Do we have to rename the physical files just for it?
 
 ## Middleware
 
