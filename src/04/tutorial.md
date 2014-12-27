@@ -53,13 +53,11 @@ var userHandler = fileHandler()
   .middleware(userPathFilter)
 ```
 
-The code above shows the a more verbose way to define the args filter using the `argsBuilder` constructor from `quiver-component`. The result is a `userPathFilter` middleware component that we can later on apply to the user file handler.
-
-Once we define a middleware component, we can apply it to a handler component using the chainable [`.middleware()`](https://github.com/quiverjs/doc/wiki/Base-Component#extensiblecomponentmiddleware) method. 
+The code above shows a more verbose way to define the args filter using the `argsBuilder` constructor from `quiver-component`. The result is a `userPathFilter` middleware component that we can later on apply to the user file handler. Once we define a middleware component, we can apply it to a handler component using the chainable [`.middleware()`](https://github.com/quiverjs/doc/wiki/Base-Component#extensiblecomponentmiddleware) method. 
 
 ## Config Alias
 
-Now that we customize how the user handler process `args`, let's also modify how it configures the file handler. Recall that file handler serve static files from the base directory specified in `config.dirPath`. If we set this in the global config and have multiple file handler instances, then all the file handlers would reference the same `dirPath` and serve the same directory.
+Now that we customize how the user handler process `args`, let's also modify how the file handler is configured. Recall that file handler serve static files from the base directory specified in `config.dirPath`. If we set this in the global config and have multiple file handler instances, then all the file handlers would reference the same `dirPath` and serve the same directory.
 
 We can allow multiple file handlers to read from different config keys to make them serve different directories. This is done by using the [config alias middleware](https://github.com/quiverjs/doc/wiki/Middleware-Components#config-alias-middleware) that alias a config key to another key. Quiver components have a convenient method `.configAlias()` to set up the alias easily.
 
@@ -105,7 +103,7 @@ var userHandler = fileHandler()
 Here we also separate out different components and put them in [different source files](.):
 
   - [user.js](user.js) - user handler component.
-  - [greet.js](greet.js) - greet handler component moved here with code unmodified.
+  - [greet.js](greet.js) - greet handler component moved with code unmodified.
   - [component.js](component.js) - main router component and hello handler.
 
 Our [config.js](config.js) now has `userDir` set instead of `dirPath`:
