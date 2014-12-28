@@ -1,6 +1,6 @@
 # 06 - User Database
 
-Right now our user profiles are stored as flat files. This is useful for rapid prototyping but in practice we would want to store it in some proper database in production. In this tutorial we are going to reimplement the user handler to query user profiles from database.
+Right now our user profiles are stored as flat files. This is useful for rapid prototyping but in practice we would want to store it in some proper database to run in production. In this tutorial we are going to reimplement the user handler to query user profiles from database.
 
 For simplicity in this demo, we are going to use the [Node Embedded Database (NeDB)](https://github.com/louischatriot/nedb) to store our user profiles. NeDB is a [MongoDB-like](http://www.mongodb.org/) NoSQL database that stores its data in plain files. This means that you don't need to install any extra software because NeDB is written in JavaScript!
 
@@ -25,8 +25,8 @@ Above we have a naive `createDb()` function that creates a promisified NeDB data
 
 For this demo, our database blob is stored at [private/user.db](../../private/user.db). There are also two scripts available at the [scripts](../../scripts) folder to make it easy to import and inspect the database. 
 
-  - [rebuild-db.js](../../scripts/create-user-db.js) would override the existing database and import user data from the json files at [static/user](../../static/user).
-  - [show-db.js](../../scripts/print-users.js) simply loads the database and print out all database entries to the console.
+  - [rebuild-db.js](../../scripts/rebuild-db.js) will override the existing database file and import user data from the json files at [static/user](../../static/user).
+  - [show-db.js](../../scripts/show-db.js) simply loads the database and print out all database entries to the console.
 
 The database scripts can also be run as npm scripts from the home directory.
 
@@ -105,15 +105,25 @@ async(function*(args) {
 
 In our handler function, we extract `args.username` and use [`db.findOne()`](https://github.com/louischatriot/nedb/wiki/Finding-documents) to search for the user entry. If we found it we just return the result as json.
 
-Because NeDB returns `null` if the no entry is found, in such case we throw an error with error code 404 using the `error()` helper provided by [`quiver-error`](https://github.com/quiverjs/doc/wiki/Errors). In Quiver if error is thrown with a `.errorCode` attribute, it will be used as the HTTP status code in the response.
+Because NeDB returns `null` if there is no entry found, in such case we throw an error with error code 404 using the `error()` helper provided by [`quiver-error`](https://github.com/quiverjs/doc/wiki/Errors). In Quiver if error is thrown with a `.errorCode` attribute, it will be used as the HTTP status code in the response.
 
 ## Running Server
+
+Last thing we need to update before running is to set the database path in [config.js](config.js)
+
+```javascript
+// config.js
+export var config = { 
+  greet: 'Yo',
+  dbPath: 'private/user.db'
+}
+```
+
+After this we can just run the new server straight away with no further modification.
 
 ```bash
 $ npm start 06
 ```
-
-Now after the rewrite for [user.js](user.js), we can run the new server straight away with no further modification.
 
 ```bash
 $ curl http://localhost:8080/user/isaacs
@@ -121,12 +131,18 @@ $ curl http://localhost:8080/user/isaacs
 
 $ curl http://localhost:8080/greet/isaacs
 Yo, Isaac Z. Schlueter
+
+$ curl -i http://localhost:8080/user/nobody
+HTTP/1.1 404 Not Found
+
+$ curl -i http://localhost:8080/greet/nobody
+HTTP/1.1 404 Not Found
 ```
 
 The result of our API remain the same, except with an addition `_id` field inserted by NeDB in the user API.
 
 ## Conclusion
 
-Notice that despite radical changes to the user handler, our [greet handler](greet.js) remains completely unchanged! By having general handler interfaces, the implementation of handlers are encapsulated. This allow loose coupling between components regardless of how the actual resources are fetched.
+Notice that despite radical changes to the user handler, our [greet handler](greet.js) remain completely unchanged! By having general handler interfaces, the implementation of handlers are encapsulated. This allow loose coupling between components regardless of how the actual resources are fetched.
 
 ## Next: [07 - Database Middleware](src/07/tutorial.md)
