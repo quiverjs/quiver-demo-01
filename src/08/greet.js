@@ -10,10 +10,8 @@ export var greetHandler = simpleHandlerBuilder(
   config => {
     var { greet='Hello' } = config
 
-    return args => {
-      var { user } = args
-
-      return greet + ', ' + user.name
-    }
+    return args =>
+      greet + ', ' + args.user.name
+      
   }, 'void', 'text')
   .middleware(getUserFilter)

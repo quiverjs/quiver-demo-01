@@ -1,4 +1,4 @@
 export var config = { 
-  greet: 'Yo',
+  greet: 'Bonjour',
   dbPath: 'private/user.db'
 }

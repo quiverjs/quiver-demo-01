@@ -67,22 +67,17 @@ var getUserFilter = argsBuilderFilter((function(config) {
             $ctx.state = (args.user) ? 1 : 2;
             break;
           case 1:
-            $ctx.returnValue = args;
             $ctx.state = -2;
             break;
           case 2:
             username = args.username;
-            $ctx.state = 11;
+            $ctx.state = 9;
             break;
-          case 11:
+          case 9:
             $ctx.state = 5;
             return getUser({username: username});
           case 5:
             args.user = $ctx.sent;
-            $ctx.state = 7;
-            break;
-          case 7:
-            $ctx.returnValue = args;
             $ctx.state = -2;
             break;
           default:

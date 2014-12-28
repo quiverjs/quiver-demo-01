@@ -55,20 +55,22 @@ var userHandler = simpleHandlerBuilder(
 
 Now instead of initializing the database manually, use handler can directly access `config.db` and perform query on it.
 
-To apply the database middleware to the user handler component, the [`.middleware()`](https://github.com/quiverjs/doc/wiki/Base-Component#extensiblecomponentmiddleware) method is called with the database middleware component passed in. This will automatically call the database middleware function before the user handler builder function is called.
+To apply the database middleware to the user handler component, the [`.middleware()`](https://github.com/quiverjs/doc/wiki/Base-Component#extensiblecomponentmiddleware) method is called at the last line with the database middleware component passed in. This will automatically call the database middleware function before the user handler builder function is called.
 
 ## Putting Together
 
-Now we have a new file [database.js](database.js) that defines the database middleware, and [user.js](user.js) imports it to apply it to the user handler component. Other than that, everything else including [config.js](config.js) remain the same.
+Now we have a new file [database.js](database.js) that defines the database middleware, and [user.js](user.js) imports it to apply it to the user handler component. Other than that, everything else including [config.js](config.js) remain the same. 
+
+But greeting the user with "Yo" is so boring isn't it? Let's just change our greet word in config to "Bonjour" just for the sake of it.
 
 ```javascript
 var config = { 
-  greet: 'Yo',
+  greet: 'Bonjour',
   dbPath: 'private/user.db'
 }
 ```
 
-Taking advantage of middleware, we can simply provide the database filepath in config without having to initialize the database ourselves. Whereas the user handler component also get to make use of the database instance with the assumption that someone else have take care of the database initialization.
+Taking advantage of middleware, we can simply provide the database filepath in config without having to initialize the database ourselves. Whereas the user handler component also get to make use of the database instance with the assumption that someone else have taken care of the database initialization.
 
 ## Running Server
 
@@ -76,14 +78,14 @@ Taking advantage of middleware, we can simply provide the database filepath in c
 $ npm start 07
 ```
 
-Running the server should yield the same result as the previous tutorial. Except that this time our code is much simplified and reusable.
+Running the server should yield the same result as the previous tutorial. Except that this time our code is much simplified and reusable, and that our users are greeted with "Bonjour" instead.
 
 ```bash
 $ curl http://localhost:8080/user/mikeal
 {"username":"mikeal","name":"Mikeal Rogers","email":"mikeal.rogers@gmail.com","_id":"teWNHWIBWVnRbmhK"}
 
 $ curl http://localhost:8080/greet/mikeal
-Yo, Mikeal Rogers
+Bonjour, Mikeal Rogers
 ```
 
-## Next: [08 - Get User Filter](src/08/tutorial.md)
+## Next: [08 - Get User Filter](../08/tutorial.md)

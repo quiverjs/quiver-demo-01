@@ -35,12 +35,10 @@ export var getUserFilter = argsBuilderFilter(
     var { getUser } = config
 
     return async(function*(args) {
-      if(args.user) return args
+      if(args.user) return
 
       var { username } = args
       args.user = yield getUser({ username })
-
-      return args
     })
   })
  .inputHandler(userHandler, 'getUser')

@@ -16,7 +16,6 @@ var greetHandler = simpleHandlerBuilder((function(config) {
   var $__3 = config,
       greet = ($__4 = $__3.greet) === void 0 ? 'Hello' : $__4;
   return (function(args) {
-    var user = args.user;
-    return greet + ', ' + user.name;
+    return greet + ', ' + args.user.name;
   });
 }), 'void', 'text').middleware(getUserFilter);
