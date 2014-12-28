@@ -94,6 +94,16 @@ $ curl http://localhost:8080/greet/mikeal
 Yo, Mikeal Rogers
 ```
 
+Another benefit of using the user handler is that errors are propogated automatically. Now if we try to greet a user with no corresponding profile on the filesystem, it will fail with HTTP status 404.
+
+```bash
+$ curl -i http://localhost:8080/user/nobody
+HTTP/1.1 404 Not Found
+
+$ curl -i http://localhost:8080/greet/nobody
+HTTP/1.1 404 Not Found
+```
+
 ## Conclusion
 
 The ability to call Quiver handlers internally as function call has tremendous benefit. It allows us to internally consume the same well-designed HTTP API without the overhead of HTTP requests. In practice, our handler components can add complicated middlewares such as caching, and these features will automatically be enabled without affecting how the handler function is consumed.

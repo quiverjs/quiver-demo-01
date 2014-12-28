@@ -19,7 +19,7 @@ var createDb = dbPath => {
 
 export var databaseMiddleware = configMiddleware(
   async(function*(config) {
-    if(config.db) return config
+    if(config.db) return
 
     var { dbPath } = config
 
@@ -27,5 +27,4 @@ export var databaseMiddleware = configMiddleware(
     yield db.loadDatabase()
 
     config.db = db
-    return config
   }))

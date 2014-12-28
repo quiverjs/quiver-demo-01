@@ -29,15 +29,14 @@ var databaseMiddleware = configMiddleware(async($traceurRuntime.initGeneratorFun
           $ctx.state = (config.db) ? 1 : 2;
           break;
         case 1:
-          $ctx.returnValue = config;
           $ctx.state = -2;
           break;
         case 2:
           dbPath = config.dbPath;
           db = createDb(dbPath);
-          $ctx.state = 11;
+          $ctx.state = 9;
           break;
-        case 11:
+        case 9:
           $ctx.state = 5;
           return db.loadDatabase();
         case 5:
@@ -46,10 +45,6 @@ var databaseMiddleware = configMiddleware(async($traceurRuntime.initGeneratorFun
           break;
         case 7:
           config.db = db;
-          $ctx.state = 13;
-          break;
-        case 13:
-          $ctx.returnValue = config;
           $ctx.state = -2;
           break;
         default:
