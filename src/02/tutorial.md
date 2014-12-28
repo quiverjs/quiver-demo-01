@@ -80,7 +80,7 @@ export var config = {
 }
 ```
 
-The file handler needs to know which directory it should serve files from. This is where the config object comes into picture. In our case, we need to set `config.dirPath` to the static user directory.
+The file handler needs to know which directory it should serve files from. This is where the config object comes into picture. In our case, we need to point `config.dirPath` to the static user directory.
 
 The tutorial server script will automatically load the config from [config.js](config.js) in the step directory.
 

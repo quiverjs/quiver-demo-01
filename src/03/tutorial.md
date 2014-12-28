@@ -25,6 +25,7 @@ var greetHandler = simpleHandlerBuilder(
 
     return args => 
       greet + ', ' + args.name
+
   }, 'void', 'text')
 ```
 
@@ -40,7 +41,7 @@ export var config = {
 }
 ```
 
-Right now the greet configuration is stored at a global location together with the `dirPath` required by the user file handler. But configuration variables in Quiver are _never_ global and thus is much more flexible. In later tutorials, you will learn that this is not the only way to inject configuration to components.
+Right now the greet configuration is stored at a global location together with the `dirPath` required by the user file handler. But configuration variables in Quiver are _never_ truly global and thus is much more flexible. In later tutorials, you will learn that this is not the only way to inject configuration to components.
 
 ## Running Server
 

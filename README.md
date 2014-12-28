@@ -38,7 +38,7 @@ $ npm start 03
 
 Check out the [HTTP Core](https://github.com/quiverjs/doc/wiki/HTTP-Core) documentation to find out more about running server in Quiver.
 
-# Tutorial Steps
+# Tutorials
 
   - [01 - Hello Quiver](src/01/tutorial.md)
   - [02 - Greet and File Handler](src/02/tutorial.md)

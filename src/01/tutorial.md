@@ -25,7 +25,7 @@ And that's all it need! The source code above is written in [EcmaScript 6 (ES6)]
 import { simpleHandler } from 'quiver-core/component'
 ```
 
-Now let's try to understand how the code works. In the first line of code, we import the `simpleHandler` function from the `quiver-component` package, which is later used to define a [simple handler component](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler). The same package is aliased to `quiver-core/component` in the [`quiver-core`](https://github.com/quiverjs/doc/wiki/Core) metapackage that include all essential Quiver core libraries. So we will import from there instead.
+Now let's try to understand how the code works. In the first line of code, we import the `simpleHandler` function from the `quiver-component` package, which is later used to define a [simple handler component](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler). The same package is aliased to `quiver-core/component` in the [`quiver-core`](https://github.com/quiverjs/doc/wiki/Core) metapackage, which includes all essential Quiver core libraries. So we will import from there instead.
 
 ## Simple Handler
 
@@ -35,7 +35,7 @@ The simpler handler is a simplified handler type in Quiver that accepts and retu
 simpleHandler(..., 'void', 'text')
 ```
 
-The `simpleHandler` function defines a handler component by taking in a function as first argument, and the input and output type in the second and third arguments.In this case, our simple handler ignores its input stream and thus have a `void` input type. And our simple handler returns a string, and so we define the output type as `text`. The reason we call string type `text` in Quiver is to avoid name clash with some built in JavaScript methods like `toString()`.
+The `simpleHandler` function defines a handler component by taking in a function as first argument, input and output type at the second and third arguments. In this case, our simple handler ignores its input stream and thus have a `void` input type. And our simple handler returns a string, and so we define the output type as `text`. The reason we call string type `text` in Quiver is to avoid name clash with some built in JavaScript methods like `toString()`.
 
 ## Handler
 
@@ -86,4 +86,4 @@ After defining a component, we can easily run it as a server by using the [`star
 
 `startServer()` also accepts a config plain object to configure the handlers, which in our case contains empty config. The function returns a promise which we then resolve to print out the status of the server.
 
-## Next: [02 - Greet and File Handler](../src/02/tutorial.md)
+## Next: [02 - Greet and File Handler](../02/tutorial.md)

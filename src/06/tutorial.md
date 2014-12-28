@@ -19,7 +19,7 @@ var createDb = dbPath => {
 }
 ```
 
-Above we have a naive `createDb()` function that creates a promisified NeDB database instance based on the db file path. Because we only use three database methods in this example, we only promisify the three methods for simplicity.
+Above we have a naive `createDb()` function that creates a promisified NeDB database instance based on the database file path. Because we only use three database methods in this example, we only promisify these three methods for simplicity.
 
 ## Database Scripts
 

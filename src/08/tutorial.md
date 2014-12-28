@@ -2,7 +2,7 @@
 
 Calling the user handler from greet handler frees us from the concern of how to retrieve user profile information. While the coupling is loose, the greet handler still have to maintain connection with the user handler and know how to call the user handler API. In practice there will be many other components that might need access to user profile information. Do they all have to know how to query that from the user handler?
 
-From the greet handler perspective, it really don't need to understand how to retrieve user profiles at all. All the greet handler should care is that there is a user it needs to greet with their real name. So why not just pass the user profile directly in `args` for it to access directly?
+From the greet handler perspective, it really don't need to understand how to retrieve user profiles at all. All the greet handler should care is that there is a user it needs to greet with their real name. So why not just pass the user profile into `args` for it to access directly?
 
 ## Args Filter
 
@@ -50,9 +50,9 @@ async(function*(args) {
 })
 ```
 
-We then create the args filter function, which is called with an `args` before the upstream handler function receives it. Inside we can asynchronously modify `args`. 
+We then create the args filter function, which is called with an `args` before the downstream handler function receives it. Inside we can asynchronously modify `args`. 
 
-The filter function first checks whether `args.user` exists. If so it means that the user profile have been injected somewhere else and it can skip querying the profile. It then gets the requested username from `args.username` and then call `getUser()` to retrieve the profile. Finally it sets the user profile into `args.user` for any upstream handler to access directly.
+The filter function first checks whether `args.user` exists. If so it means that the user profile have been injected somewhere else and it can skip querying for the profile. It then gets the requested username from `args.username` and then call `getUser()` to retrieve the profile. Finally it sets the user profile into `args.user` for any downstream handler to access.
 
 ## New Greet Handler
 

@@ -53,7 +53,7 @@ var userHandler = fileHandler()
   .middleware(userPathFilter)
 ```
 
-The code above shows a more verbose way to define the args filter using the `argsBuilder` constructor from `quiver-component`. The result is a `userPathFilter` middleware component that we can later on apply to the user file handler. Once we define a middleware component, we can apply it to a handler component using the chainable [`.middleware()`](https://github.com/quiverjs/doc/wiki/Base-Component#extensiblecomponentmiddleware) method. 
+The code above shows a more verbose way to define the args filter using the `argsFilter()` constructor from `quiver-component`. The result is a `userPathFilter` middleware component that we can later on apply to the user file handler. Once we define a middleware component, we can apply it to a handler component using the chainable [`.middleware()`](https://github.com/quiverjs/doc/wiki/Base-Component#extensiblecomponentmiddleware) method. 
 
 ## Config Alias
 
