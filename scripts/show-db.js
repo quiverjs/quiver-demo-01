@@ -8,6 +8,6 @@ db.loadDatabase(function(err) {
   db.find({}, function(err, users) {
     if(err) throw err
 
-    console.log('users:', users)
+    console.log('users:', JSON.stringify(users, null, 2))
   })
 })
