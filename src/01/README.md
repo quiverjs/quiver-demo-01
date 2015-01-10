@@ -17,7 +17,7 @@ export var main = simpleHandler(
   'void', 'text')
 ```
 
-And that's all it need! The source code above is written in [EcmaScript 6 (ES6)](https://people.mozilla.org/~jorendorff/es6-draft.html), which is the next JavaScript standard. The tutorial build script will automatically use [Traceur](https://github.com/google/traceur-compiler) to transpile the code to ES5 before running it on Node.
+And that's all it need! The source code above is written in [EcmaScript 6 (ES6)](http://www.2ality.com/2014/08/es6-today.html), which is the next JavaScript standard. The tutorial build script will automatically use [Traceur](https://github.com/google/traceur-compiler) to transpile the code to ES5 before running it on Node.
 
 ## Quiver Component
 
@@ -86,4 +86,4 @@ After defining a component, we can easily run it as a server by using the [`star
 
 `startServer()` also accepts a config plain object to configure the handlers, which in our case contains empty config. The function returns a promise which we then resolve to print out the status of the server.
 
-## Next: [02 - Greet and File Handler](../02/tutorial.md)
+## Next: [02 - Greet and File Handler](../02)

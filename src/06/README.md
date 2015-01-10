@@ -145,4 +145,4 @@ The result of our API remain the same, except with an addition `_id` field inser
 
 Notice that despite radical changes to the user handler, our [greet handler](greet.js) remain completely unchanged! By having general handler interfaces, the implementation of handlers are encapsulated. This allow loose coupling between components regardless of how the actual resources are fetched.
 
-## Next: [07 - Database Middleware](../07/tutorial.md)
+## Next: [07 - Database Middleware](../07)

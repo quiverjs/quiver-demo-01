@@ -58,4 +58,4 @@ $ curl http://localhost:8080/greet/isaacs
 Yo, isaacs
 ```
 
-## Next: [04 - Filter and Middleware](../04/tutorial.md)
+## Next: [04 - Filter and Middleware](../04)

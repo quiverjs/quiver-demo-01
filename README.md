@@ -40,11 +40,11 @@ Check out the [HTTP Core](https://github.com/quiverjs/doc/wiki/HTTP-Core) docume
 
 # Tutorials
 
-  - [01 - Hello Quiver](src/01/tutorial.md)
-  - [02 - Greet and File Handler](src/02/tutorial.md)
-  - [03 - Greet Word Configuration](src/03/tutorial.md)
-  - [04 - Filter and Middleware](src/04/tutorial.md)
-  - [05 - Input User Handler](src/05/tutorial.md)
-  - [06 - User Database](src/06/tutorial.md)
-  - [07 - Database Middleware](src/07/tutorial.md)
-  - [08 - Get User Filter](src/08/tutorial.md)
+  - [01 - Hello Quiver](src/01)
+  - [02 - Greet and File Handler](src/02)
+  - [03 - Greet Word Configuration](src/03)
+  - [04 - Filter and Middleware](src/04)
+  - [05 - Input User Handler](src/05)
+  - [06 - User Database](src/06)
+  - [07 - Database Middleware](src/07)
+  - [08 - Get User Filter](src/08)

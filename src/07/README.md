@@ -6,7 +6,7 @@ One way to solve this is to inject the database instance into `config` so that c
 
 ## Config Middleware
 
-In Quiver we have a better solution to this using the [middleware construct](https://github.com/quiverjs/doc/wiki/Architecture-Constructs#middleware). One of the middleware's power is the ability to modify the `config` object before the inner component's builder function receives it. In [step 04](../04/tutorial.md#config-alias), we also created a simple config alias middleware to alias a config key to another key.
+In Quiver we have a better solution to this using the [middleware construct](https://github.com/quiverjs/doc/wiki/Architecture-Constructs#middleware). One of the middleware's power is the ability to modify the `config` object before the inner component's builder function receives it. In [step 04](../04#config-alias), we also created a simple config alias middleware to alias a config key to another key.
 
 In this tutorial, we are going to create a database middleware using the [`configMiddleware()`](https://github.com/quiverjs/doc/wiki/Middleware-Components#config-middleware) component construct.
 
@@ -88,4 +88,4 @@ $ curl http://localhost:8080/greet/mikeal
 Bonjour, Mikeal Rogers
 ```
 
-## Next: [08 - Get User Filter](../08/tutorial.md)
+## Next: [08 - Get User Filter](../08)

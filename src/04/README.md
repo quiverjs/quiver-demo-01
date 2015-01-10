@@ -133,4 +133,4 @@ $ curl http://localhost:8080/user/mikeal
 }
 ```
 
-## Next: [05 - Input User Handler](../05/tutorial.md)
+## Next: [05 - Input User Handler](../05)

@@ -119,4 +119,4 @@ $ curl http://localhost:8080/user/isaacs.json
 }
 ```
 
-## Next: [03 - Greet Word Configuration](../03/tutorial.md)
+## Next: [03 - Greet Word Configuration](../03)

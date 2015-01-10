@@ -110,4 +110,4 @@ The ability to call Quiver handlers internally as function call has tremendous b
 
 In our next tutorial, we will replace the mock filesystem with a real database. There you will see that despite radical changes, the greet handler can consume the user handler API the same way regardless of how the data is stored.
 
-## Next: [06 - User Database](../06/tutorial.md)
+## Next: [06 - User Database](../06)
