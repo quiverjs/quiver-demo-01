@@ -4,17 +4,17 @@ import {
 
 import { fileHandler } from 'quiver-file-component'
 
-var helloHandler = simpleHandler(
+let helloHandler = simpleHandler(
   args => 'Hello Quiver',
   'void', 'text')
 
-var greetHandler = simpleHandler(
+let greetHandler = simpleHandler(
   args => 'Hello, ' + args.name,
   'void', 'text')
 
-var userHandler = fileHandler()
+let userHandler = fileHandler()
 
-export var main = router()
+export let main = router()
   .staticRoute('/', helloHandler)
   .paramRoute('/greet/:name', greetHandler)
   .paramRoute('/user/:restpath', userHandler)

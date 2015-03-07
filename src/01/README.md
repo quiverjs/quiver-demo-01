@@ -12,7 +12,7 @@ For this example, create a [component.js](component.js) file and define our hell
 // component.js
 import { simpleHandler } from 'quiver-core/component'
 
-export var main = simpleHandler(
+export let main = simpleHandler(
   args => 'Hello Quiver',
   'void', 'text')
 ```
@@ -71,7 +71,7 @@ import 'quiver-core/traceur'
 import { startServer } from 'quiver-core/http'
 import { main } from './component'
 
-var config = { }
+let config = { }
 
 startServer(main, config)
 .then(server => {

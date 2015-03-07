@@ -4,7 +4,7 @@ Now that we have a simple web server with four components running, let's start r
 
 ```javascript
 // old greet handler
-var greetHandler = simpleHandler(
+let greetHandler = simpleHandler(
   args => 'Hello, ' + args.name,
   'void', 'text')
 ```
@@ -19,9 +19,9 @@ So to make the greet word configurable, we simply define the component using the
 import { simpleHandlerBuilder } from 'quiver-core/component'
 
 // new greet handler
-var greetHandler = simpleHandlerBuilder(
+let greetHandler = simpleHandlerBuilder(
   config => {
-    var { greet='Hello' } = config
+    let { greet='Hello' } = config
 
     return args => 
       greet + ', ' + args.name
@@ -29,19 +29,19 @@ var greetHandler = simpleHandlerBuilder(
   }, 'void', 'text')
 ```
 
-In the new component, we pass in a function that accepts a config. The function then extracts the greet word, with default value "Hello", out of the config using ES6 destructuring. Upon capturing the greet word, the function returns a simple handler function that later access the greet word as closure variable.
+In the new component, we pass in a function that accepts a config. The function then extracts the greet word, with default value "Hello", out of the config using ES6 destructuring. Upon capturing the greet word, the function returns a simple handler function that later access the greet word as closure letiable.
 
 With this simple addition, our greet word can now be configured in any way. Now if we set a different greet word in [config.js](config.js), we can expect our application to use that greet word instead.
 
 ```javascript
 // config.js
-export var config = {
+export let config = {
   greet: 'Yo',
   dirPath: 'static/user'
 }
 ```
 
-Right now the greet configuration is stored at a global location together with the `dirPath` required by the user file handler. But configuration variables in Quiver are _never_ truly global and thus is much more flexible. In later tutorials, you will learn that this is not the only way to inject configuration to components.
+Right now the greet configuration is stored at a global location together with the `dirPath` required by the user file handler. But configuration letiables in Quiver are _never_ truly global and thus is much more flexible. In later tutorials, you will learn that this is not the only way to inject configuration to components.
 
 ## Running Server
 

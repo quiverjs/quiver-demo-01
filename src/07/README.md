@@ -1,6 +1,6 @@
 # 07 - Database Middleware
 
-Right now we have created a database back end for the user handler component. But the user handler is initializing the database manually and the created database instance is only accessible by itself. In practice there will be many other components that also require database access. Is there any way we can share the database instance without exposing it as global variable?
+Right now we have created a database back end for the user handler component. But the user handler is initializing the database manually and the created database instance is only accessible by itself. In practice there will be many other components that also require database access. Is there any way we can share the database instance without exposing it as global letiable?
 
 One way to solve this is to inject the database instance into `config` so that components can access it directly. But then this will bring extra complexity to the provider of `config`, because they now have to know how to initialize the database instance. Our database instance is also initialized asynchronously, so it would require the config provider to use async control flow and handle any error arised.
 
@@ -13,13 +13,13 @@ In this tutorial, we are going to create a database middleware using the [`confi
 ```javascript
 import { configMiddleware } from 'quiver-core/component'
 
-var databaseMiddleware = configMiddleware(
+let databaseMiddleware = configMiddleware(
   async(function*(config) {
     if(config.db) return
 
-    var { dbPath } = config
+    let { dbPath } = config
 
-    var db = createDb(dbPath)
+    let db = createDb(dbPath)
     yield db.loadDatabase()
 
     config.db = db
@@ -37,14 +37,14 @@ The database middleware then get the database file path from `config` and initia
 With the database initialization logic moved out, our user handler component becomes a bit simpler.
 
 ```javascript
-var userHandler = simpleHandlerBuilder(
+let userHandler = simpleHandlerBuilder(
   config => {
-    var { db } = config
+    let { db } = config
 
     return async(function*(args) {
-      var { username } = args
+      let { username } = args
 
-      var user = yield db.findOne({ username })
+      let user = yield db.findOne({ username })
       if(!user) throw error(404, 'user not found')
 
       return user
@@ -64,7 +64,7 @@ Now we have a new file [database.js](database.js) that defines the database midd
 But greeting the user with "Yo" is so boring isn't it? Let's just change our greet word in config to "Bonjour" just for the sake of it.
 
 ```javascript
-var config = { 
+let config = { 
   greet: 'Bonjour',
   dbPath: 'private/user.db'
 }

@@ -15,14 +15,14 @@ import {
   databaseMiddleware
 } from './database'
 
-export var userHandler = simpleHandlerBuilder(
+export let userHandler = simpleHandlerBuilder(
   config => {
-    var { db } = config
+    let { db } = config
 
     return async(function*(args) {
-      var { username } = args
+      let { username } = args
 
-      var user = yield db.findOne({ username })
+      let user = yield db.findOne({ username })
       if(!user) throw error(404, 'user not found')
 
       return user
@@ -30,14 +30,14 @@ export var userHandler = simpleHandlerBuilder(
   }, 'void', 'json')
   .middleware(databaseMiddleware)
 
-export var getUserFilter = argsBuilderFilter(
+export let getUserFilter = argsBuilderFilter(
   config => {
-    var { getUser } = config
+    let { getUser } = config
 
     return async(function*(args) {
       if(args.user) return
 
-      var { username } = args
+      let { username } = args
       args.user = yield getUser({ username })
     })
   })

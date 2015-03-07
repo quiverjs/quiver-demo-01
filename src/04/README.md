@@ -4,7 +4,7 @@ Now that we have slightly improved our greet handler, let's try and refactor our
 
 ```javascript
 // old user handler
-var userHandler = fileHandler()
+let userHandler = fileHandler()
 ```
 
 The user handler uses the filesystem as a simple mockup of HTTP API for user profiles. Everything works fine except that our flat-file database is made of files with `.json` extension. What if we want to serve the HTTP API as `/user/john` instead of `/user/john.json`? Do we have to rename the physical files just for it?
@@ -15,14 +15,14 @@ Quiver provides a simple way to extend components by composing them using the [M
 
 ## Args Filter
 
-When the file handler accepts a request, it knows which file path to serve by checking `args.path`. This variable is currently set by the main router component based on the special `:restpath` route parameter.
+When the file handler accepts a request, it knows which file path to serve by checking `args.path`. This letiable is currently set by the main router component based on the special `:restpath` route parameter.
 
 Unlike normal route parameters, `:restpath` allow nested paths so the file handler can technically serve paths such as `/user/subdir/other.html`. But because our flat files are all in one directory, we can simplify the path resolution by telling file handler which file path to serve ourselves.
 
 The [Args Filter](https://github.com/quiverjs/doc/wiki/Filter-Components#args-filter) component is a type of middleware component that modifies the `args` before the actual handler receives it.
 
 ```javascript
-var userHandler = fileHandler()
+let userHandler = fileHandler()
   .argsFilter(args => {
     args.path = '/' + args.username + '.json'
   })
@@ -31,7 +31,7 @@ var userHandler = fileHandler()
 We can apply an args filter to the file handler by calling the chainable `.argsFilter()` method. Inside `argsFilter()`, we define a function that takes in `args` and compute the filepath `args.path` based on `args.username`. This way without modifying the file handler code, we can make it serve files based on `args.username` instead.
 
 ```javascript
-var main = router()
+let main = router()
   .paramRoute('/user/:username', userHandler)
 ```
 
@@ -44,12 +44,12 @@ The `.argsFilter()` method earlier is a syntactic sugar for creating an args fil
 ```javascript
 import { argsFilter } from 'quiver-core/component'
 
-var userPathFilter = argsFilter(
+let userPathFilter = argsFilter(
 args => {
   args.path = '/' + args.username + '.json'
 })
 
-var userHandler = fileHandler()
+let userHandler = fileHandler()
   .middleware(userPathFilter)
 ```
 
@@ -62,7 +62,7 @@ Now that we customize how the user handler process `args`, let's also modify how
 We can allow multiple file handlers to read from different config keys to make them serve different directories. This is done by using the [config alias middleware](https://github.com/quiverjs/doc/wiki/Middleware-Components#config-alias-middleware) that alias a config key to another key. Quiver components have a convenient method `.configAlias()` to set up the alias easily.
 
 ```javascript
-var userHandler = fileHandler()
+let userHandler = fileHandler()
   .configAlias({
     dirPath: 'userDir'
   })
@@ -75,11 +75,11 @@ Similar to args filter, the `.configAlias()` method is a syntactic sugar for cre
 ```javascript
 import { configAliasMiddleware } from 'quiver-core/component'
 
-var userDirAlias = configAliasMiddleware({
+let userDirAlias = configAliasMiddleware({
   dirPath: 'userDir'
 })
 
-var userHandler = fileHandler()
+let userHandler = fileHandler()
   .middleware(userDirAlias)
 ```
 
@@ -91,7 +91,7 @@ Applying both middlewares together, we get our final user handler component defi
 
 ```javascript
 // user.js
-var userHandler = fileHandler()
+let userHandler = fileHandler()
   .argsFilter(args => {
     args.path = '/' + args.username + '.json'
   })
@@ -110,7 +110,7 @@ Our [config.js](config.js) now has `userDir` set instead of `dirPath`:
 
 ```javascript
 // config.js
-export var config = { 
+export let config = { 
   greet: 'Yo',
   userDir: 'static/user'
 }

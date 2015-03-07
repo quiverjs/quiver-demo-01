@@ -3,16 +3,16 @@ import 'quiver-core/traceur'
 import path from 'path'
 import { startServer } from 'quiver-core/http'
 
-var step = process.argv[2] || '01'
+let step = process.argv[2] || '01'
 
 console.log('Running demo', step)
 
-var subdir = path.join(__dirname, step)
-var configPath = path.join(subdir, 'config')
-var componentPath = path.join(subdir, 'component')
+let subdir = path.join(__dirname, step)
+let configPath = path.join(subdir, 'config')
+let componentPath = path.join(subdir, 'component')
 
-var { config } = require(configPath)
-var { main } = require(componentPath)
+let { config } = require(configPath)
+let { main } = require(componentPath)
 
 startServer(main, config)
 .then(server => {

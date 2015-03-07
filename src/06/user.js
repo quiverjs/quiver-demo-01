@@ -9,24 +9,24 @@ import {
   simpleHandlerBuilder
 } from 'quiver-core/component'
 
-var createDb = dbPath => {
-  var db = new Datastore({ filename: dbPath })
+let createDb = dbPath => {
+  let db = new Datastore({ filename: dbPath })
 
   return promisifyMethods(db, 
     ['loadDatabase', 'find', 'findOne'])
 }
 
-export var userHandler = simpleHandlerBuilder(
+export let userHandler = simpleHandlerBuilder(
   async(function*(config) {
-    var { dbPath } = config
+    let { dbPath } = config
     
-    var db = createDb(dbPath)
+    let db = createDb(dbPath)
     yield db.loadDatabase()
 
     return async(function*(args) {
-      var { username } = args
+      let { username } = args
 
-      var user = yield db.findOne({ username })
+      let user = yield db.findOne({ username })
       if(!user) throw error(404, 'user not found')
 
       return user

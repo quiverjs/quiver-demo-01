@@ -5,17 +5,17 @@ Now that we have learned how to define a simple hello world component, let's def
 ## Hello Handler
 
 ```javascript
-var helloHandler = simpleHandler(
+let helloHandler = simpleHandler(
   args => 'Hello Quiver',
   'void', 'text')
 ```
 
-The first component is the same hello handler that we defined earlier, except that it is assigned to the `helloHandler` variable.
+The first component is the same hello handler that we defined earlier, except that it is assigned to the `helloHandler` letiable.
 
 ## Greet Handler
 
 ```javascript
-var greetHandler = simpleHandler(
+let greetHandler = simpleHandler(
   args => 'Hello, ' + args.name,
   'void', 'text')
 ```
@@ -27,7 +27,7 @@ The second component is a slightly more complicated component that greets a user
 ```javascript
 import { fileHandler } from 'quiver-file-component'
 
-var userHandler = fileHandler()
+let userHandler = fileHandler()
 ```
 
 For the third component, we define a simple file handler using the `fileHandler()` function in [`quiver-file-component`](https://github.com/quiverjs/quiver-file-component) package. This file handler will be used to serve the [static directory](../../static/user) containing json files with user information.
@@ -49,7 +49,7 @@ Now that we have three components defined, we need to create a router to dispatc
 ```javascript
 import { router } from 'quiver-core/component'
 
-export var main = router()
+export let main = router()
   .staticRoute('/', helloHandler)
   .paramRoute('/greet/:name', greetHandler)
   .paramRoute('/user/:restpath', userHandler)
@@ -75,7 +75,7 @@ With all components defined, we can now run the main router component as the ent
 
 ```javascript
 // config.js
-export var config = { 
+export let config = { 
   dirPath: 'static/user'
 }
 ```

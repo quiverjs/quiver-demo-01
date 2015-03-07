@@ -10,20 +10,20 @@ import {
   configMiddleware
 } from 'quiver-core/component'
 
-var createDb = dbPath => {
-  var db = new Datastore({ filename: dbPath })
+let createDb = dbPath => {
+  let db = new Datastore({ filename: dbPath })
 
   return promisifyMethods(db, 
     ['loadDatabase', 'find', 'findOne'])
 }
 
-export var databaseMiddleware = configMiddleware(
+export let databaseMiddleware = configMiddleware(
   async(function*(config) {
     if(config.db) return
 
-    var { dbPath } = config
+    let { dbPath } = config
 
-    var db = createDb(dbPath)
+    let db = createDb(dbPath)
     yield db.loadDatabase()
 
     config.db = db

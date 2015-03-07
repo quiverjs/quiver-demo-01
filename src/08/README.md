@@ -13,14 +13,14 @@ In this tutorial we are going to use the [`argsBuilderFilter()`](https://github.
 ```javascript
 import { argsBuilderFilter } from 'quiver-core/component'
 
-var getUserFilter = argsBuilderFilter(
+let getUserFilter = argsBuilderFilter(
   config => {
-    var { getUser } = config
+    let { getUser } = config
 
     return async(function*(args) {
       if(args.user) return
 
-      var { username } = args
+      let { username } = args
       args.user = yield getUser({ username })
     })
   })
@@ -30,9 +30,9 @@ var getUserFilter = argsBuilderFilter(
 The `argsBuilderFilter()` construct takes in a builder function that builds an args handler function that accepts an `args` object. The result is a middleware component that can later be applied to handler components.
 
 ```javascript
-var getUserFilter = argsBuilderFilter(
+let getUserFilter = argsBuilderFilter(
   config => {
-    var { getUser } = config
+    let { getUser } = config
 
     return async(function*(args) { ... })
   })
@@ -45,7 +45,7 @@ Middleware components themselves can also depend on other middleware or handler 
 async(function*(args) {
   if(args.user) return
 
-  var { username } = args
+  let { username } = args
   args.user = yield getUser({ username })
 })
 ```
@@ -59,9 +59,9 @@ The filter function first checks whether `args.user` exists. If so it means that
 With `getUserFilter` component, our [greet handler](greet.js) component can be completely stripped of logic of user profile retrieval.
 
 ```javascript
-var greetHandler = simpleHandlerBuilder(
+let greetHandler = simpleHandlerBuilder(
   config => {
-    var { greet='Hello' } = config
+    let { greet='Hello' } = config
 
     return args =>
       greet + ', ' + args.user.name

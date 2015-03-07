@@ -1,1 +1,1 @@
-export var config = { }
+export let config = { }

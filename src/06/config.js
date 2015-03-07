@@ -1,4 +1,4 @@
-export var config = { 
+export let config = { 
   greet: 'Yo',
   dbPath: 'private/user.db'
 }

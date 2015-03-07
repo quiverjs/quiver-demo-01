@@ -2,7 +2,7 @@ import 'quiver-core/traceur'
 import { startServer } from 'quiver-core/http'
 import { main } from './component'
 
-var config = { }
+let config = { }
 
 startServer(main, config)
 .then(server => {
