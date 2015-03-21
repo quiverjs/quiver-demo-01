@@ -4,7 +4,7 @@ import {
 
 import { fileHandler } from 'quiver-file-component'
 
-export let userHandler = fileHandler()
+export const userHandler = fileHandler()
   .argsFilter(args => {
     args.path = '/' + args.username + '.json'
   })

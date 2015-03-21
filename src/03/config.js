@@ -1,4 +1,4 @@
-export let config = {
+export const config = {
   greet: 'Yo',
   dirPath: 'static/user'
 }

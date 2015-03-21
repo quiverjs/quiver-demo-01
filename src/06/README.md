@@ -11,8 +11,8 @@ NeDB currently has callback-based API, but Quiver uses promises to manage asynch
 ```javascript
 import { promisifyMethods } from 'quiver-core/promise'
 
-let createDb = dbPath => {
-  let db = new Datastore({ filename: dbPath })
+const createDb = dbPath => {
+  const db = new Datastore({ filename: dbPath })
 
   return promisifyMethods(db, 
     ['loadDatabase', 'find', 'findOne'])
@@ -54,17 +54,17 @@ Now that we have our database setup, let's re-implement our [user handler](user.
 import { error } from 'quiver-core/error'
 import { simpleHandlerBuilder } from 'quiver-core/component'
 
-let userHandler = simpleHandlerBuilder(
+const userHandler = simpleHandlerBuilder(
   async(function*(config) {
-    let { dbPath } = config
+    const { dbPath } = config
     
-    let db = createDb(dbPath)
+    const db = createDb(dbPath)
     yield db.loadDatabase()
 
     return async(function*(args) {
-      let { username } = args
+      const { username } = args
 
-      let user = yield db.findOne({ username })
+      const user = yield db.findOne({ username })
       if(!user) throw error(404, 'user not found')
 
       return user
@@ -77,11 +77,11 @@ Here we define the new user handler as a [simple handler builder](https://github
 Beause there are asynchronous code involved, we wrap both the builder and handler functions with the `quiver-promise` [`async()`](https://github.com/quiverjs/doc/wiki/Promises#async) wrapper to make the code simpler.
 
 ```javascript
-let userHandler = simpleHandlerBuilder(
+const userHandler = simpleHandlerBuilder(
   async(function*(config) {
-    let { dbPath } = config
+    const { dbPath } = config
     
-    let db = createDb(dbPath)
+    const db = createDb(dbPath)
     yield db.loadDatabase()
 
     return async(function*(args) { ... })
@@ -94,9 +94,9 @@ We then use the `createDb()` function we defined earlier to create a new NeDB in
 
 ```javascript
 async(function*(args) {
-  let { username } = args
+  const { username } = args
 
-  let user = yield db.findOne({ username })
+  const user = yield db.findOne({ username })
   if(!user) throw error(404, 'user not found')
 
   return user
@@ -113,7 +113,7 @@ Last thing we need to update before running is to set the database path in [conf
 
 ```javascript
 // config.js
-export let config = { 
+export const config = { 
   greet: 'Yo',
   dbPath: 'private/user.db'
 }

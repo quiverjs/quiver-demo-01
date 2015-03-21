@@ -1,4 +1,4 @@
-export let config = { 
+export const config = { 
   greet: 'Bonjour',
   dbPath: 'private/user.db'
 }

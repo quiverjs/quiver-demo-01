@@ -12,7 +12,7 @@ For this example, create a [component.js](component.js) file and define our hell
 // component.js
 import { simpleHandler } from 'quiver-core/component'
 
-export let main = simpleHandler(
+export const main = simpleHandler(
   args => 'Hello Quiver',
   'void', 'text')
 ```
@@ -67,11 +67,10 @@ Hello Quiver
 If you are curious on how to write the actual code to run the server, you can check out the [server.js](server.js) file in this directory to run this specific tutorial.
 
 ```javascript
-import 'quiver-core/traceur'
 import { startServer } from 'quiver-core/http'
 import { main } from './component'
 
-let config = { }
+const config = { }
 
 startServer(main, config)
 .then(server => {

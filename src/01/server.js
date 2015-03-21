@@ -1,7 +1,7 @@
 import { startServer } from 'quiver-core/http'
 import { main } from './component'
 
-let config = { }
+const config = { }
 
 startServer(main, config)
 .then(server => {

@@ -1,3 +1,3 @@
-export let config = { 
+export const config = { 
   dirPath: 'static/user'
 }

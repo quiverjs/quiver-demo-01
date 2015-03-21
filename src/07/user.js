@@ -13,14 +13,14 @@ import {
   databaseMiddleware
 } from './database'
 
-export let userHandler = simpleHandlerBuilder(
+export const userHandler = simpleHandlerBuilder(
   config => {
-    let { db } = config
+    const { db } = config
 
     return async(function*(args) {
-      let { username } = args
+      const { username } = args
 
-      let user = yield db.findOne({ username })
+      const user = yield db.findOne({ username })
       if(!user) throw error(404, 'user not found')
 
       return user

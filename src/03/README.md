@@ -4,7 +4,7 @@ Now that we have a simple web server with four components running, let's start r
 
 ```javascript
 // old greet handler
-let greetHandler = simpleHandler(
+const greetHandler = simpleHandler(
   args => 'Hello, ' + args.name,
   'void', 'text')
 ```
@@ -19,9 +19,9 @@ So to make the greet word configurable, we simply define the component using the
 import { simpleHandlerBuilder } from 'quiver-core/component'
 
 // new greet handler
-let greetHandler = simpleHandlerBuilder(
+const greetHandler = simpleHandlerBuilder(
   config => {
-    let { greet='Hello' } = config
+    const { greet='Hello' } = config
 
     return args => 
       greet + ', ' + args.name
@@ -35,7 +35,7 @@ With this simple addition, our greet word can now be configured in any way. Now 
 
 ```javascript
 // config.js
-export let config = {
+export const config = {
   greet: 'Yo',
   dirPath: 'static/user'
 }

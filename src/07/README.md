@@ -13,13 +13,13 @@ In this tutorial, we are going to create a database middleware using the [`confi
 ```javascript
 import { configMiddleware } from 'quiver-core/component'
 
-let databaseMiddleware = configMiddleware(
+const databaseMiddleware = configMiddleware(
   async(function*(config) {
     if(config.db) return
 
-    let { dbPath } = config
+    const { dbPath } = config
 
-    let db = createDb(dbPath)
+    const db = createDb(dbPath)
     yield db.loadDatabase()
 
     config.db = db
@@ -37,14 +37,14 @@ The database middleware then get the database file path from `config` and initia
 With the database initialization logic moved out, our user handler component becomes a bit simpler.
 
 ```javascript
-let userHandler = simpleHandlerBuilder(
+const userHandler = simpleHandlerBuilder(
   config => {
-    let { db } = config
+    const { db } = config
 
     return async(function*(args) {
-      let { username } = args
+      const { username } = args
 
-      let user = yield db.findOne({ username })
+      const user = yield db.findOne({ username })
       if(!user) throw error(404, 'user not found')
 
       return user
@@ -64,7 +64,7 @@ Now we have a new file [database.js](database.js) that defines the database midd
 But greeting the user with "Yo" is so boring isn't it? Let's just change our greet word in config to "Bonjour" just for the sake of it.
 
 ```javascript
-let config = { 
+const config = { 
   greet: 'Bonjour',
   dbPath: 'private/user.db'
 }

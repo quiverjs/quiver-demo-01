@@ -6,14 +6,14 @@ import {
 
 import { userHandler } from './user'
 
-export let greetHandler = simpleHandlerBuilder(
+export const greetHandler = simpleHandlerBuilder(
   config => {
-    let { getUser, greet='Hello' } = config
+    const { getUser, greet='Hello' } = config
 
     return async(function*(args) {
-      let { username } = args
+      const { username } = args
 
-      let user = yield getUser({ username })
+      const user = yield getUser({ username })
       return greet + ', ' + user.name
     })
   }, 'void', 'text')

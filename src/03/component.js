@@ -5,21 +5,21 @@ import {
 
 import { fileHandler } from 'quiver-file-component'
 
-let helloHandler = simpleHandler(
+const helloHandler = simpleHandler(
   args => 'Hello Quiver',
   'void', 'text')
 
-let greetHandler = simpleHandlerBuilder(
+const greetHandler = simpleHandlerBuilder(
   config => {
-    let { greet='Hello' } = config
+    const { greet='Hello' } = config
 
     return args => 
       greet + ', ' + args.name
   }, 'void', 'text')
 
-let userHandler = fileHandler()
+const userHandler = fileHandler()
 
-export let main = router()
+export const main = router()
   .staticRoute('/', helloHandler)
   .paramRoute('/greet/:name', greetHandler)
   .paramRoute('/user/:restpath', userHandler)

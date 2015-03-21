@@ -2,9 +2,9 @@ import {
   simpleHandlerBuilder
 } from 'quiver-core/component'
 
-export let greetHandler = simpleHandlerBuilder(
+export const greetHandler = simpleHandlerBuilder(
   config => {
-    let { greet='Hello' } = config
+    const { greet='Hello' } = config
 
     return args => 
       greet + ', ' + args.name

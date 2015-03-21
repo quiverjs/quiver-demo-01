@@ -6,9 +6,9 @@ import {
 
 import { getUserFilter } from './user'
 
-export let greetHandler = simpleHandlerBuilder(
+export const greetHandler = simpleHandlerBuilder(
   config => {
-    let { greet='Hello' } = config
+    const { greet='Hello' } = config
 
     return args =>
       greet + ', ' + args.user.name
