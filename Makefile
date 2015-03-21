@@ -1,9 +1,6 @@
-TRACEUR_FLAGS=--modules commonjs --generators parse --block-binding parse
+BABEL_FLAGS=--blacklist=es6.blockScoping,es6.constants,es6.forOf,regenerator 
 
 build: src
-	traceur --dir src/ out/ $(TRACEUR_FLAGS)
-
-server: build
-	node out/server.js
+	babel src --out-dir out $(BABEL_FLAGS)
 
 .PHONY: build test
