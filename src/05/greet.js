@@ -1,8 +1,8 @@
-import { async } from 'quiver-core/promise'
+import { async } from 'quiver/promise'
 
 import { 
   simpleHandlerBuilder
-} from 'quiver-core/component'
+} from 'quiver/component'
 
 import { userHandler } from './user'
 

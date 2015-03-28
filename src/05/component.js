@@ -1,6 +1,6 @@
 import { 
   router, simpleHandler
-} from 'quiver-core/component'
+} from 'quiver/component'
 
 import { userHandler } from './user'
 import { greetHandler } from './greet'

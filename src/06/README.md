@@ -9,7 +9,7 @@ For simplicity in this demo, we are going to use the [Node Embedded Database (Ne
 NeDB currently has callback-based API, but Quiver uses promises to manage asynchronous control flow. To make the code simpler, we use the [`promisifyMethods()`](https://github.com/quiverjs/doc/wiki/Promises#promisifymethods) utility from [`quiver-promise`](https://github.com/quiverjs/quiver-promise) to promisify some NeDB APIs so that we can use it more easily.
 
 ```javascript
-import { promisifyMethods } from 'quiver-core/promise'
+import { promisifyMethods } from 'quiver/promise'
 
 const createDb = dbPath => {
   const db = new Datastore({ filename: dbPath })
@@ -51,8 +51,8 @@ Note that the printed internal `_id` field may have different value every time t
 Now that we have our database setup, let's re-implement our [user handler](user.js).
 
 ```javascript
-import { error } from 'quiver-core/error'
-import { simpleHandlerBuilder } from 'quiver-core/component'
+import { error } from 'quiver/error'
+import { simpleHandlerBuilder } from 'quiver/component'
 
 const userHandler = simpleHandlerBuilder(
   async(function*(config) {

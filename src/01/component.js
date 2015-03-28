@@ -1,4 +1,4 @@
-import { simpleHandler } from 'quiver-core/component'
+import { simpleHandler } from 'quiver/component'
 
 export const main = simpleHandler(
   args => 'Hello Quiver',

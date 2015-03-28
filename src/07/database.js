@@ -1,14 +1,14 @@
 import Datastore from 'nedb'
 
-import { error } from 'quiver-core/error'
+import { error } from 'quiver/error'
 
 import { 
   async, promisifyMethods 
-} from 'quiver-core/promise'
+} from 'quiver/promise'
 
 import {
   configMiddleware
-} from 'quiver-core/component'
+} from 'quiver/component'
 
 const createDb = dbPath => {
   const db = new Datastore({ filename: dbPath })

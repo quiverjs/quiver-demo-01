@@ -11,7 +11,7 @@ Quiver provides a clean and easy way to separate concerns using the [filter cons
 In this tutorial we are going to use the [`argsBuilderFilter()`](https://github.com/quiverjs/doc/wiki/Filter-Components#args-builder-filter) construct to create a [get user filter](user.js) that automatically fetch a user profile and put it into `args`.
 
 ```javascript
-import { argsBuilderFilter } from 'quiver-core/component'
+import { argsBuilderFilter } from 'quiver/component'
 
 const getUserFilter = argsBuilderFilter(
   config => {

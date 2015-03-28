@@ -47,7 +47,7 @@ The static file handler is used to simulate user database on the filesystem. For
 Now that we have three components defined, we need to create a router to dispatch HTTP requests to different components based on the URL. This can be done using the [router component](https://github.com/quiverjs/doc/wiki/Router-Component).
 
 ```javascript
-import { router } from 'quiver-core/component'
+import { router } from 'quiver/component'
 
 export const main = router()
   .staticRoute('/', helloHandler)

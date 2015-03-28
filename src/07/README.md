@@ -11,7 +11,7 @@ In Quiver we have a better solution to this using the [middleware construct](htt
 In this tutorial, we are going to create a database middleware using the [`configMiddleware()`](https://github.com/quiverjs/doc/wiki/Middleware-Components#config-middleware) component construct.
 
 ```javascript
-import { configMiddleware } from 'quiver-core/component'
+import { configMiddleware } from 'quiver/component'
 
 const databaseMiddleware = configMiddleware(
   async(function*(config) {

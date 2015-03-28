@@ -16,7 +16,7 @@ From static file directory to database credentials, the problem of configuration
 So to make the greet word configurable, we simply define the component using the [`simpleHandlerBuilder()`](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler-builder) function in `quiver-component`:
 
 ```javascript
-import { simpleHandlerBuilder } from 'quiver-core/component'
+import { simpleHandlerBuilder } from 'quiver/component'
 
 // new greet handler
 const greetHandler = simpleHandlerBuilder(

@@ -13,7 +13,7 @@ Quiver designs the handler interface exactly to handle this use case. In Quiver,
 Currently if we load the user handler from greet handler, it will be loaded as a [stream handler](https://github.com/quiverjs/doc/wiki/Architecture-Constructs#stream-handler). This will require us to manually manipulate the input and results as streams. But since we know that our user profiles are in json format, we can set a simpler loader for the user handler so that it returns json result if called internally.
 
 ```javascript
-import { simpleHandlerLoader } from 'quiver-core/component'
+import { simpleHandlerLoader } from 'quiver/component'
 
 export const userHandler = fileHandler()
   .argsFilter(...)

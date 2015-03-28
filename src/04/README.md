@@ -42,7 +42,7 @@ So now with the new interface, the user route can be modified to set the user pa
 The `.argsFilter()` method earlier is a syntactic sugar for creating an args filter component and applying it to the handler component. It is also possible to define the filter as separate component and then apply it later on.
 
 ```javascript
-import { argsFilter } from 'quiver-core/component'
+import { argsFilter } from 'quiver/component'
 
 const userPathFilter = argsFilter(
 args => {
@@ -73,7 +73,7 @@ With this, the middleware will set `config.dirPath` to the same value as `config
 Similar to args filter, the `.configAlias()` method is a syntactic sugar for creating a `configAliasMiddleware` component and applying it to the handler component:
 
 ```javascript
-import { configAliasMiddleware } from 'quiver-core/component'
+import { configAliasMiddleware } from 'quiver/component'
 
 const userDirAlias = configAliasMiddleware({
   dirPath: 'userDir'

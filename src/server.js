@@ -1,5 +1,5 @@
 import path from 'path'
-import { startServer } from 'quiver-core/http'
+import { startServer } from 'quiver/http'
 
 const step = process.argv[2] || '01'
 

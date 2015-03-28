@@ -1,7 +1,7 @@
 import { 
   router, simpleHandler, 
   simpleHandlerBuilder
-} from 'quiver-core/component'
+} from 'quiver/component'
 
 import { fileHandler } from 'quiver-file-component'
 

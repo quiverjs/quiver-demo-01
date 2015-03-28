@@ -10,7 +10,7 @@ For this example, create a [component.js](component.js) file and define our hell
 
 ```javascript
 // component.js
-import { simpleHandler } from 'quiver-core/component'
+import { simpleHandler } from 'quiver/component'
 
 export const main = simpleHandler(
   args => 'Hello Quiver',
@@ -22,10 +22,10 @@ And that's all it need! The source code above is written in [EcmaScript 6 (ES6)]
 ## Quiver Component
 
 ```javascript
-import { simpleHandler } from 'quiver-core/component'
+import { simpleHandler } from 'quiver/component'
 ```
 
-Now let's try to understand how the code works. In the first line of code, we import the `simpleHandler` function from the `quiver-component` package, which is later used to define a [simple handler component](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler). The same package is aliased to `quiver-core/component` in the [`quiver-core`](https://github.com/quiverjs/doc/wiki/Core) metapackage, which includes all essential Quiver core libraries. So we will import from there instead.
+Now let's try to understand how the code works. In the first line of code, we import the `simpleHandler` function from the `quiver-component` package, which is later used to define a [simple handler component](https://github.com/quiverjs/doc/wiki/Handler-Components#simple-handler). The same package is aliased to `quiver/component` in the [`quiver`](https://github.com/quiverjs/doc/wiki/Core) metapackage, which includes all essential Quiver core libraries. So we will import from there instead.
 
 ## Simple Handler
 
@@ -67,7 +67,7 @@ Hello Quiver
 If you are curious on how to write the actual code to run the server, you can check out the [server.js](server.js) file in this directory to run this specific tutorial.
 
 ```javascript
-import { startServer } from 'quiver-core/http'
+import { startServer } from 'quiver/http'
 import { main } from './component'
 
 const config = { }
